@@ -1,0 +1,88 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-radio {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #606266;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+
+  &.border {
+    padding: 5px 10px;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+
+    &:not(.disabled):hover {
+      border-color: #66b1ff;
+    }
+  }
+
+  &.checked {
+    .#{$pre}-radio-icon {
+      border-color: #409eff;
+      background-color: #409eff;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 100%;
+        background-color: white;
+        transform: translate(-50%, -50%);
+        content: '';
+      }
+    }
+
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+
+      .#{$pre}-radio-icon {
+        opacity: 0.5;
+      }
+    }
+
+    &:not(.disabled):hover .#{$pre}-radio-icon {
+      border-color: #66b1ff;
+    }
+  }
+
+  &:not(.checked) {
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+
+      .#{$pre}-radio-icon {
+        background-color: #f5f7fa;
+      }
+    }
+
+    &:not(.disabled):hover .#{$pre}-radio-icon {
+      border-color: #66b1ff;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-left: 30px;
+  }
+
+  .#{$pre}-radio-icon {
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #dcdfe6;
+    border-radius: 100%;
+  }
+
+  .#{$pre}-radio-content {
+    margin-left: 5px;
+  }
+}

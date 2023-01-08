@@ -1,0 +1,53 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-timeline-item {
+  display: flex;
+
+  .chart-part {
+    .circular {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      font-size: 10px;
+    }
+
+    .line {
+      width: 1px;
+      height: calc(100% - 5px);
+      margin-left: 5px;
+
+      &.isLast {
+        height: 0;
+      }
+    }
+  }
+
+  .words-part {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+
+    .title {
+      font-size: 14px;
+      line-height: 1;
+      color: #303133;
+
+      &.bottom {
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .content {
+      font-size: 14px;
+      line-height: 1;
+      color: #909399;
+
+      &.bottom {
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

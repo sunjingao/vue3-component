@@ -1,0 +1,111 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-checkbox {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #606266;
+  cursor: pointer;
+  user-select: none;
+
+  &.border {
+    padding: 5px 10px;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+
+    &:not(.disabled):hover {
+      border-color: #66b1ff;
+    }
+  }
+
+  &.checked {
+    .#{$pre}-checkbox-icon {
+      border-color: #409eff;
+      background-color: #409eff;
+    }
+
+    .#{$pre}-checkbox-icon::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 8px;
+      height: 4px;
+      border-bottom: 2px solid white;
+      border-left: 2px solid white;
+      transform: translate(-50%, -50%) rotate(-50deg);
+      content: ' ';
+    }
+
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+
+      .#{$pre}-checkbox-icon {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.notAll {
+    .#{$pre}-checkbox-icon {
+      border-color: #409eff;
+      background-color: #409eff;
+    }
+
+    .#{$pre}-checkbox-icon::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      width: 6px;
+      height: 2px;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+      content: ' ';
+    }
+
+    &:not(.disabled):hover .#{$pre}-checkbox-icon {
+      border-color: #66b1ff;
+    }
+
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+
+      .#{$pre}-checkbox-icon {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &:not(.checked):not(.notAll) {
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+
+      .#{$pre}-checkbox-icon {
+        background-color: #f5f7fa;
+      }
+    }
+
+    &:not(.disabled):hover .#{$pre}-checkbox-icon {
+      border-color: #66b1ff;
+    }
+  }
+
+  .#{$pre}-checkbox-icon {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #dcdfe6;
+    border-radius: 2px;
+  }
+
+  .#{$pre}-checkbox-content {
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,138 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+
+  .content-part {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+
+    .content {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+    }
+  }
+
+  .arrow-part {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 35px;
+    transform: translateY(-50%);
+
+    .before {
+      position: absolute;
+      left: 10px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      line-height: 35px;
+      text-align: center;
+      color: #fff;
+      background-color: #e6e8ea;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: #cbced2;
+      }
+    }
+
+    .next {
+      position: absolute;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      line-height: 35px;
+      text-align: center;
+      color: #fff;
+      background-color: #e6e8ea;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: #cbced2;
+      }
+    }
+  }
+
+  .indicator-part {
+    &.inside {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .item {
+        display: inline-block;
+        width: 40px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+          display: inline-block;
+          width: 30px;
+          height: 2px;
+          margin: 0 5px;
+          background-color: rgb(192, 196, 204);
+          opacity: 0.5;
+
+          &.is-active {
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          i {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &.outside {
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      cursor: pointer;
+
+      .item {
+        display: inline-block;
+        width: 40px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+          display: inline-block;
+          width: 30px;
+          height: 2px;
+          margin: 0 5px;
+          background-color: rgb(192, 196, 204);
+          opacity: 0.5;
+
+          &.is-active {
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          i {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

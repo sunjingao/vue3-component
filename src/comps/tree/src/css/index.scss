@@ -1,0 +1,17 @@
+.v-tree {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+  user-select: none;
+
+  .v-tree-noData {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

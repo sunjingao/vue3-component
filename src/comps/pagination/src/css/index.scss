@@ -1,0 +1,8 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-pagination {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}

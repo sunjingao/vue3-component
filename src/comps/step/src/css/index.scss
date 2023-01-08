@@ -1,0 +1,107 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-step {
+  display: inline-flex;
+  flex-direction: column;
+
+  .chart-part {
+    position: relative;
+    display: inline-block;
+
+    .step {
+      position: relative;
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+      border: 2px solid;
+      border-radius: 50%;
+      line-height: 24px;
+      text-align: center;
+      background-color: #fff;
+
+      &.wait {
+        border-color: #c0c4cc;
+        color: #c0c4cc;
+      }
+
+      &.process {
+        border-color: #303133;
+        color: #303133;
+      }
+
+      &.success {
+        border-color: #67c23a;
+        color: #67c23a;
+      }
+
+      &.error {
+        border-color: #f56c6c;
+        color: #f56c6c;
+      }
+    }
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      color: #c0c4cc;
+      background-color: #c0c4cc;
+      transform: translateY(-50%);
+
+      &.process {
+        background-color: #67c23a;
+      }
+
+      &.error {
+        background-color: #f56c6c;
+      }
+    }
+
+    .simple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      line-height: 24px;
+    }
+  }
+
+  .content-part {
+    color: #c0c4cc;
+
+    &.success {
+      color: #67c23a;
+    }
+
+    &.process {
+      color: #303133;
+    }
+
+    &.wait {
+      color: #c0c4cc;
+    }
+
+    &.error {
+      color: #f56c6c;
+    }
+
+    .title {
+      display: inline-block;
+      white-space: nowrap;
+
+      &.center {
+        transform: translateX(calc(-50% + 12px));
+      }
+    }
+
+    .content {
+      display: inline-block;
+      white-space: nowrap;
+
+      &.center {
+        transform: translateX(calc(-50% + 12px));
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@import '../../../../../../css/popper/arrow';
+@import '../../../../../../css/config/index';
+
+.#{$pre}-timeauto {
+  .show-border {
+    border: 1px solid #e4e7ed;
+  }
+
+  .show-bottom-border {
+    border-bottom: 1px solid #e4e7ed;
+  }
+
+  .ml10 {
+    margin-left: 10px;
+  }
+
+  .p5 {
+    padding: 5px;
+  }
+
+  .is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  :not(.is-disabled) {
+    cursor: pointer;
+  }
+
+  .over-class:hover {
+    background-color: #f5f7fa;
+    cursor: pointer;
+  }
+
+  .selected {
+    font-weight: 700;
+    color: #303133;
+  }
+
+  .time-area {
+    display: flex;
+    flex-wrap: nowrap;
+    font-weight: normal;
+    font-size: 12px;
+    color: #606266;
+
+    .start-or-end-part {
+      position: relative;
+
+      .start-or-end-part_title {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
+  }
+
+  .button-area {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+
+    & > span {
+      padding: 10px 5px 5px;
+
+      &.confirm {
+        color: #409eff;
+      }
+
+      &:hover {
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+
+  &.#{$pre}-popper {
+    padding: 0 5px;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 12px #0000001a;
+
+    .#{$pre}-popper-content {
+      max-height: 300px;
+      padding: 5px 0;
+      overflow: auto;
+    }
+
+    @include arrowLeftDeviation();
+  }
+}

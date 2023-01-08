@@ -1,0 +1,50 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-rate {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+
+  .#{$pre}-mr5 {
+    margin-right: 0.5rem;
+  }
+
+  .#{$pre}-font {
+    font-size: 1rem;
+    line-height: 1;
+    color: gray;
+  }
+
+  .#{$pre}-rate-content {
+    position: relative;
+    display: inline-flex;
+
+    .#{$pre}-item {
+      position: relative;
+      display: inline-block;
+      width: 1.5rem;
+      height: 1rem;
+      overflow: hidden;
+      font-size: 0.8rem;
+      color: gray;
+
+      .#{$pre}-rate-pointer {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .#{$pre}-rate-item-select-color {
+        color: red;
+      }
+
+      .#{$pre}-item-score-select {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../../css/popper/arrow';
+@import '../../../../css/transition/index';
+@import '../../../../css/config/index';
+
+.#{$pre}-date-picker {
+  position: relative;
+  display: inline-block;
+
+  //input的front插槽样式设置
+  .#{$pre}-date-picker-front {
+    padding-left: 5px;
+  }
+
+  //input样式设置
+  .#{$pre}-input-content {
+    padding: 0 21px 0 5px !important;
+  }
+
+  .arrow {
+    @include transition-time();
+
+    &.up {
+      transform: rotate(-180deg);
+      transform-origin: center center;
+    }
+  }
+
+  .#{$pre}-popper {
+    padding: 0 5px;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 12px #0000001a;
+
+    .#{$pre}-popper-content {
+      width: 100%;
+      max-height: 300px;
+      padding: 5px 0;
+      overflow: auto;
+    }
+
+    @include arrowLeftDeviation();
+  }
+}

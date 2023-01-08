@@ -1,0 +1,121 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-transfer {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #606266;
+  user-select: none;
+
+  & > .transfer-content {
+    display: inline-block;
+    width: 202px;
+    border: 1px solid #dcdfe6;
+    vertical-align: middle;
+
+    & > .no-data {
+      line-height: 239px;
+      text-align: center;
+      color: #909399;
+    }
+
+    & > .title {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      padding: 0 6px;
+      border-bottom: 1px solid #dcdfe6;
+      font-size: 0;
+      background-color: #f5f7fa;
+      cursor: pointer;
+
+      & .title-value {
+        display: inline-block;
+        width: 100px;
+        padding: 0 10px;
+        overflow: hidden;
+        font-size: 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      & .select-num {
+        display: inline-block;
+        width: 50px;
+        overflow: hidden;
+        font-size: 0.75rem;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #909399;
+      }
+    }
+
+    & > ul.content {
+      list-style-type: none;
+      width: 100%;
+      height: 240px;
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-size: 0.87rem;
+
+      .input-content {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      & > li {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0 6px;
+        font-size: 0;
+        cursor: pointer;
+
+        & > .content-value {
+          display: inline-flex;
+          align-items: center;
+          width: 100%;
+          height: 30px;
+          padding: 0 10px;
+          overflow: hidden;
+          font-size: 0.9rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        & .content-value.checked {
+          color: #409eff;
+        }
+
+        & .content-value:not(.disabled):hover {
+          color: #409eff;
+        }
+      }
+
+      & > li.disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  //中间移动两侧内容的部分
+  & > .transfer-icon {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+    vertical-align: middle;
+
+    .mb10 {
+      margin-bottom: 10px;
+    }
+  }
+}

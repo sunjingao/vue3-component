@@ -1,0 +1,36 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-badge {
+  position: relative;
+  display: inline-block;
+
+  .#{$pre}-icon {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 10px;
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: nowrap;
+    color: #fff;
+    background-color: #f56c6c;
+    transform: translate(100%, -50%);
+  }
+
+  .#{$pre}-dot {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f56c6c;
+    transform: translateX(100%) translateY(-100%);
+  }
+}

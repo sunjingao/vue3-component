@@ -1,0 +1,8 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-radio-group {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  white-space: nowrap;
+}

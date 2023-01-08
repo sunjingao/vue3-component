@@ -1,0 +1,174 @@
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", Tahoma, Arial, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #34495e;
+    background-color: #fff;
+    margin: 0;
+    height: 100%;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+a {
+    color: rgba(64, 120, 192);
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+p {
+    margin: 0;
+}
+
+.m0 {
+    margin: 0;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.vaM {
+    vertical-align: middle;
+}
+
+/*进度条 satrt*/
+
+#nprogress .bar {
+    height: 4px;
+    background: #27c4f5 linear-gradient(to right, #27c4f5, #a307ba, #fd8d32, #70c050, #27c4f5) !important;
+    background-size: 500%;
+    animation: 2s linear infinite barprogress, .3s fadein;
+    width: 100%;
+}
+
+@keyframes barprogress {
+    0% {
+        background-position: 0% 0
+    }
+    to {
+        background-position: 125% 0
+    }
+}
+
+#nprogress .spinner-icon {
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+/*进度条 end*/
+
+/*调整引入的markdown样式 start*/
+
+/*table的样式*/
+.example-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+    color: #5e6d82;
+    font-size: 14px;
+    margin-bottom: 45px;
+    line-height: 1.5em
+}
+
+.example-table strong {
+    font-weight: 400
+}
+
+.example-table thead tr {
+    height: 38px;
+}
+
+.example-table th {
+    text-align: left;
+    border-top: 1px solid #eaeefb;
+    background-color: #eee;
+    white-space: nowrap
+}
+
+.example-table td, example-table th {
+    text-align: left;
+    border-bottom: 1px solid #eaeefb;
+    padding: 10px;
+    max-width: 250px
+}
+
+.example-table td:first-child, .example-table th:first-child {
+    padding-left: 10px
+}
+
+/*调整展示文档的代码描述部分的样式*/
+blockquote {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/*调整引入的markdown样式 end*/
+
+/*思考下为什么要加下面这个，不加的话看高度也是撑满全屏*/
+#app {
+    height: 100%;
+}
+
+.scroll::-webkit-scrollbar,
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.scroll::-webkit-scrollbar-track-piece,
+::-webkit-scrollbar-track-piece {
+    background: #f5f5f5;
+    -webkit-border-radius: 6px;
+}
+
+.scroll::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background: #d9dadf;
+    -webkit-border-radius: 6px;
+}
+
+.scroll::-webkit-scrollbar-thumb:horizontal,
+::-webkit-scrollbar-thumb:horizontal {
+    width: 5px;
+    background: #d9dadf;
+    -webkit-border-radius: 6px;
+}
+
+
+

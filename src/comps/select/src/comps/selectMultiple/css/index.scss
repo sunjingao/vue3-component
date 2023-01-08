@@ -1,0 +1,79 @@
+@import '../../../../../../css/popper/arrow';
+@import '../../../../../../css/transition/index';
+@import '../../../../../../css/config/index';
+
+.#{$pre}-select {
+  position: relative;
+  display: inline-block;
+
+  .#{$pre}-input-content {
+    padding: 0 26px 0 15px !important;
+  }
+
+  .select-direction {
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 0;
+    display: inline-block;
+    width: 26px;
+    text-align: center;
+    pointer-events: none;
+
+    > i {
+      display: inline-block;
+
+      @include transition-time();
+
+      &.up {
+        transform: rotate(-180deg);
+        transform-origin: center center;
+      }
+    }
+  }
+
+  .#{$pre}-popper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 #0000001a;
+
+    .#{$pre}-popper-content {
+      max-height: 300px;
+      padding: 5px 0;
+      overflow: auto;
+    }
+
+    @include arrowLeftDeviation();
+  }
+
+  .#{$pre}-multiple-reference {
+    padding: 0 15px 5px;
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    outline: none;
+    overflow: auto;
+
+    &:hover {
+      border-color: #c0c4cc;
+    }
+
+    &:focus {
+      border-color: #409eff;
+    }
+
+    & > .#{$pre}-tag {
+      margin-top: 5px;
+      margin-right: 5px;
+    }
+
+    .#{$pre}-self-placeholder {
+      display: inline-block;
+      margin-top: 5px;
+      color: #bfbfbf;
+    }
+  }
+}

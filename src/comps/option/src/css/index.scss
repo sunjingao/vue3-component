@@ -1,0 +1,28 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-option {
+  position: relative;
+  padding: 0 15px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #606266;
+  background-color: #fff;
+  cursor: pointer;
+
+  &.active {
+    font-weight: 700;
+    color: #409eff;
+  }
+
+  &.disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+  }
+
+  &:not(.disabled):hover {
+    background-color: #f5f7fa;
+  }
+}

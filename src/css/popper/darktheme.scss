@@ -1,0 +1,43 @@
+/*
+** 暗色主题，参考tooltip的使用
+*/
+
+@mixin darkTheme() {
+  color: #fff;
+  background-color: #303133;
+
+  &[placement^='top'] .v-popper-arrow::before {
+    border-top: 5px solid #303133;
+  }
+
+  &[placement^='top'] .v-popper-arrow::after {
+    border-top: 5px solid #303133;
+  }
+
+  &[placement^='bottom'] .v-popper-arrow::before {
+    top: 1px;
+    border-bottom: 5px solid #303133;
+  }
+
+  &[placement^='bottom'] .v-popper-arrow::after {
+    border-bottom: 5px solid #303133;
+  }
+
+  &[placement^='left'] .v-popper-arrow::before {
+    border-left: 5px solid #303133;
+  }
+
+  &[placement^='left'] .v-popper-arrow::after {
+    left: 1px;
+    border-left: 5px solid #303133;
+  }
+
+  &[placement^='right'] .v-popper-arrow::before {
+    border-right: 5px solid #303133;
+  }
+
+  &[placement^='right'] .v-popper-arrow::after {
+    left: 1px;
+    border-right: 5px solid #303133;
+  }
+}

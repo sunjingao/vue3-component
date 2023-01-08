@@ -1,0 +1,22 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-button-group {
+  display: inline-flex;
+  flex-flow: row nowrap;
+
+  :deep(.#{$pre}-button:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :deep(.#{$pre}-button:not(:first-child):not(:last-child)) {
+    margin-left: -1px;
+    border-radius: 0;
+  }
+
+  :deep(.#{$pre}-button:last-child) {
+    margin-left: -1px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

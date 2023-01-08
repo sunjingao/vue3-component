@@ -1,0 +1,103 @@
+@import '../../../../css/config/index';
+
+@mixin tag-type() {
+  &.default {
+    background-color: #fff;
+
+    & > .delete {
+      &:hover {
+        color: #3a8ee6;
+      }
+    }
+  }
+
+  &.primary {
+    color: #3a8ee6;
+    background-color: #ecf5ff;
+
+    & > .delete {
+      color: #409eff;
+
+      &:hover {
+        color: #3a8ee6;
+      }
+    }
+  }
+
+  &.success {
+    color: #5daf34;
+    background-color: #f0f9eb;
+
+    & > .delete {
+      color: #67c23a;
+
+      &:hover {
+        color: #5daf34;
+      }
+    }
+  }
+
+  &.info {
+    color: #82848a;
+    background-color: #f4f4f5;
+
+    & > .delete {
+      color: #909399;
+
+      &:hover {
+        color: #82848a;
+      }
+    }
+  }
+
+  &.warning {
+    color: #cf9236;
+    background-color: #fdf6ec;
+
+    & > .delete {
+      color: #e6a23c;
+
+      &:hover {
+        color: #cf9236;
+      }
+    }
+  }
+
+  &.danger {
+    color: #dd6161;
+    background-color: #fef0f0;
+
+    & > .delete {
+      color: #f56c6c;
+
+      &:hover {
+        color: #dd6161;
+      }
+    }
+  }
+}
+
+.#{$pre}-tag {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #909399;
+  background-color: #f0f2f5;
+
+  .delete {
+    margin-left: 5px;
+    font-size: inherit;
+    color: #c0c4cc;
+    cursor: pointer;
+
+    &:hover {
+      color: #909399;
+    }
+  }
+
+  @include tag-type();
+}

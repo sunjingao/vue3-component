@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+@import './config/index';
+
+*[class^='#{$pre}-'],
+*[class^='#{$pre}-']::before,
+*[class^='#{$pre}-']::after,
+[class^='#{$pre}-'] *,
+[class^='#{$pre}-'] *::before,
+[class^='#{$pre}-'] *::after, {
+  box-sizing: border-box;
+}
+
+ol[class^='#{$pre}-'],
+ul[class^='#{$pre}-'] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// stylelint-disable-next-line
+input[class^='#{$pre}-']::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[class^='#{$pre}-'],
+img[class^='#{$pre}-'] {
+  border: none;
+}
+
+table[class^='#{$pre}-'] {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+input[class^='#{$pre}-'],
+button[class^='#{$pre}-'],
+select[class^='#{$pre}-'],
+textarea[class^='#{$pre}-'] {
+  outline: none;
+  appearance: none;
+}
+textarea[class^='#{$pre}-']::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[class^='#{$pre}-']:disabled,
+[class^='#{$pre}-'] input:disabled {
+  color: #c0c4cc;
+  background-color: #f5f7fa;
+  cursor: not-allowed;
+}
+
+/* 滚动条样式 start */
+
+.#{$pre}-hover-show-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.#{$pre}-hover-show-scrollbar:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.#{$pre}-hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar-track-piece {
+  border-radius: 6px;
+  //背景
+  background-color: transparent;
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  border-radius: 6px;
+  //这里是展示的线
+  background-color: rgba(#909399, 0.3);
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(#909399, 0.5);
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  border-radius: 6px;
+  background-color: rgba(#909399, 0.3);
+}
+
+[class^='#{$pre}-']::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: rgba(#909399, 0.5);
+}
+
+/* https://www.lyblog.net/detail/314.html */
+
+/* 滚动条样式 end */
+
+.#{$pre}-w100 {
+  width: 100%;
+}
+
+.#{$pre}-h100 {
+  height: 100%;
+}
+
+.#{$pre}-dib {
+  display: inline-block;
+}
+
+.#{$pre}-pr {
+  position: relative;
+}
+
+.#{$pre}-fl {
+  float: left;
+}
+
+.#{$pre}-fs0 {
+  font-size: 0;
+}
+
+.#{$pre}-fs12 {
+  font-size: 12px;
+}
+
+.#{$pre}-fix {
+  zoom: 1;
+}
+
+.#{$pre}-noSelect {
+  user-select: none;
+}
+
+.#{$pre}-fix::after {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  line-height: 0;
+  content: 'clear';
+}
+
+.#{$pre}-vaM {
+  vertical-align: middle;
+}
+
+.#{$pre}-taC {
+  text-align: center;
+}
+
+.#{$pre}-oxA {
+  overflow-x: auto;
+}
+
+.#{$pre}-oyA {
+  overflow-y: auto;
+}
+
+.#{$pre}-pa1 {
+  z-index: 1;
+}
+
+.#{$pre}-hidden {
+  overflow: hidden;
+}
+
+.#{$pre}-cna {
+  cursor: not-allowed;
+}
+
+.#{$pre}-mt20 {
+  margin-top: 20px;
+}
+
+.#{$pre}-ml20 {
+  margin-left: 20px;
+}
+
+.icon-v-loading::before {
+  display: inline-block;
+  animation: loadingAni 2s infinite linear;
+}
+
+@keyframes loadingAni {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../../../css/transition/index';
+
+.v-timepicker {
+  position: relative;
+  display: inline-block;
+
+  .arrow {
+    @include transition-time();
+
+    &.up {
+      transform: rotate(-180deg);
+      transform-origin: center center;
+    }
+  }
+
+  .v-input-content {
+    padding: 0 26px 0 5px;
+  }
+
+  .v-timepicker-front {
+    padding-left: 5px;
+    vertical-align: middle;
+  }
+}

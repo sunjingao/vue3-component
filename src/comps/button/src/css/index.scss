@@ -1,0 +1,197 @@
+@import '../../../../css/config/index';
+
+@mixin button-type() {
+  &.#{$pre}-default-btn {
+    background-color: #fff;
+
+    &.#{$pre}-plain {
+      background-color: #fff;
+
+      &:not(.#{$pre}-disabled):focus,
+      &:not(.#{$pre}-disabled):hover {
+        background-color: #fff;
+      }
+
+      &:not(.#{$pre}-disabled):active {
+        outline: none;
+        background-color: #fff;
+      }
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #c6e2ff;
+      color: #3a8ee6;
+      background-color: #c6e2ff;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #3a8ee6;
+      outline: none;
+      color: #3a8ee6;
+      background-color: #c6e2ff;
+    }
+  }
+
+  &.#{$pre}-primary-btn {
+    border-color: #409eff;
+    color: #fff;
+    background-color: #409eff;
+
+    &.#{$pre}-plain {
+      border-color: #66b1ff;
+      color: #3a8ee6;
+      background-color: #ecf5ff;
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #66b1ff;
+      color: #fff;
+      background-color: #66b1ff;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #3a8ee6;
+      outline: none;
+      color: #fff;
+      background-color: #3a8ee6;
+    }
+  }
+
+  &.#{$pre}-success-btn {
+    border-color: #67c23a;
+    color: #fff;
+    background-color: #67c23a;
+
+    &.#{$pre}-plain {
+      border-color: #85ce61;
+      color: #5daf34;
+      background-color: #f0f9eb;
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #85ce61;
+      color: #fff;
+      background-color: #85ce61;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #5daf34;
+      outline: none;
+      color: #fff;
+      background-color: #5daf34;
+    }
+  }
+
+  &.#{$pre}-info-btn {
+    border-color: #909399;
+    color: #fff;
+    background-color: #909399;
+
+    &.#{$pre}-plain {
+      border-color: #a6a9ad;
+      color: #82848a;
+      background-color: #f4f4f5;
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #a6a9ad;
+      color: #fff;
+      background-color: #a6a9ad;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #82848a;
+      outline: none;
+      color: #fff;
+      background-color: #82848a;
+    }
+  }
+
+  &.#{$pre}-warning-btn {
+    border-color: #e6a23c;
+    color: #fff;
+    background-color: #e6a23c;
+
+    &.#{$pre}-plain {
+      border-color: #ebb563;
+      color: #cf9236;
+      background-color: #fdf6ec;
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #ebb563;
+      color: #fff;
+      background-color: #ebb563;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #cf9236;
+      outline: none;
+      color: #fff;
+      background-color: #cf9236;
+    }
+  }
+
+  &.#{$pre}-danger-btn {
+    border-color: #f56c6c;
+    color: #fff;
+    background-color: #f56c6c;
+
+    &.#{$pre}-plain {
+      border-color: #dd6161;
+      color: #dd6161;
+      background-color: #fef0f0;
+    }
+
+    &:not(.#{$pre}-disabled):focus,
+    &:not(.#{$pre}-disabled):hover {
+      border-color: #f78989;
+      color: #fff;
+      background-color: #f78989;
+    }
+
+    &:not(.#{$pre}-disabled):active {
+      border-color: #dd6161;
+      outline: none;
+      color: #fff;
+      background-color: #dd6161;
+    }
+  }
+}
+
+.#{$pre}-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: #606266;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+
+  &.#{$pre}-round {
+    border-radius: 9999px;
+  }
+
+  &.#{$pre}-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .#{$pre}-loading-icon {
+    margin-right: 5px;
+  }
+
+  @include button-type();
+}

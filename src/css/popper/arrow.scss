@@ -1,0 +1,420 @@
+/*
+** 白色主题
+*/
+
+@mixin top-start() {
+  &[placement='top-start'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    bottom: 1px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    transform: translateY(100%);
+  }
+
+  &[placement='top-start'] .v-popper-arrow::before,
+  &[placement='top-start'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px solid #fff;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='top-start'] .v-popper-arrow::before {
+    top: 1px;
+    border-top: 5px solid #ccc;
+  }
+
+  &[placement='top-start'] .v-popper-arrow::after {
+    border-top: 5px solid #fff;
+  }
+}
+
+@mixin top() {
+  &[placement='top'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    bottom: 1px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, 100%);
+  }
+
+  &[placement='top'] .v-popper-arrow::before,
+  &[placement='top'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px solid #fff;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='top'] .v-popper-arrow::before {
+    top: 1px;
+    border-top: 5px solid #ccc;
+  }
+
+  &[placement='top'] .v-popper-arrow::after {
+    border-top: 5px solid #fff;
+  }
+}
+
+@mixin top-end() {
+  &[placement='top-end'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    bottom: 1px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    transform: translateY(100%);
+  }
+
+  &[placement='top-end'] .v-popper-arrow::before,
+  &[placement='top-end'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px solid #fff;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='top-end'] .v-popper-arrow::before {
+    top: 1px;
+    border-top: 5px solid #ccc;
+  }
+
+  &[placement='top-end'] .v-popper-arrow::after {
+    border-top: 5px solid #fff;
+  }
+}
+
+@mixin right-start() {
+  &[placement='right-start'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    transform: translateX(-100%);
+  }
+
+  &[placement='right-start'] .v-popper-arrow::before,
+  &[placement='right-start'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px white solid;
+  }
+
+  &[placement='right-start'] .v-popper-arrow::before {
+    border-right: 5px solid #ccc;
+  }
+
+  &[placement='right-start'] .v-popper-arrow::after {
+    left: 1px;
+    border-right: 5px white solid;
+  }
+}
+
+@mixin right() {
+  &[placement='right'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    transform: translate(-100%, -50%);
+  }
+
+  &[placement='right'] .v-popper-arrow::before,
+  &[placement='right'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px white solid;
+  }
+
+  &[placement='right'] .v-popper-arrow::before {
+    border-right: 5px solid #ccc;
+  }
+
+  &[placement='right'] .v-popper-arrow::after {
+    left: 1px;
+    border-right: 5px white solid;
+  }
+}
+
+@mixin right-end() {
+  &[placement='right-end'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    transform: translate(-100%, -50%);
+  }
+
+  &[placement='right-end'] .v-popper-arrow::before,
+  &[placement='right-end'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px white solid;
+  }
+
+  &[placement='right-end'] .v-popper-arrow::before {
+    border-right: 5px solid #ccc;
+  }
+
+  &[placement='right-end'] .v-popper-arrow::after {
+    left: 1px;
+    border-right: 5px white solid;
+  }
+}
+
+@mixin bottom-start() {
+  &[placement='bottom-start'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-100%);
+  }
+
+  &[placement='bottom-start'] .v-popper-arrow::before,
+  &[placement='bottom-start'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px white solid;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='bottom-start'] .v-popper-arrow::before {
+    border-bottom: 5px solid #ccc;
+  }
+
+  &[placement='bottom-start'] .v-popper-arrow::after {
+    top: 1px;
+    border-bottom: 5px solid #fff;
+  }
+}
+
+@mixin bottom() {
+  &[placement='bottom'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -100%);
+  }
+
+  &[placement='bottom'] .v-popper-arrow::before,
+  &[placement='bottom'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px white solid;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='bottom'] .v-popper-arrow::before {
+    border-bottom: 5px solid #ccc;
+  }
+
+  &[placement='bottom'] .v-popper-arrow::after {
+    top: 1px;
+    border-bottom: 5px solid #fff;
+  }
+}
+
+@mixin bottom-end() {
+  &[placement='bottom-end'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-100%);
+  }
+
+  &[placement='bottom-end'] .v-popper-arrow::before,
+  &[placement='bottom-end'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px white solid;
+    border-left: 5px transparent dashed;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='bottom-end'] .v-popper-arrow::before {
+    border-bottom: 5px solid #ccc;
+  }
+
+  &[placement='bottom-end'] .v-popper-arrow::after {
+    top: 1px;
+    border-bottom: 5px solid #fff;
+  }
+}
+
+@mixin left-start() {
+  &[placement='left-start'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    transform: translateX(100%);
+  }
+
+  &[placement='left-start'] .v-popper-arrow::before,
+  &[placement='left-start'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px white solid;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='left-start'] .v-popper-arrow::before {
+    left: 1px;
+    border-left: 5px solid #ccc;
+  }
+
+  &[placement='left-start'] .v-popper-arrow::after {
+    border-left: 5px solid #fff;
+  }
+}
+
+@mixin left() {
+  &[placement='left'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    transform: translate(100%, -50%);
+  }
+
+  &[placement='left'] .v-popper-arrow::before,
+  &[placement='left'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px white solid;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='left'] .v-popper-arrow::before {
+    left: 1px;
+    border-left: 5px solid #ccc;
+  }
+
+  &[placement='left'] .v-popper-arrow::after {
+    border-left: 5px solid #fff;
+  }
+}
+
+@mixin left-end() {
+  &[placement='left-end'] .v-popper-arrow {
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    transform: translateX(100%);
+  }
+
+  &[placement='left-end'] .v-popper-arrow::before,
+  &[placement='left-end'] .v-popper-arrow::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px transparent dashed;
+    border-bottom: 5px transparent dashed;
+    border-left: 5px white solid;
+    content: '';
+    border-right: 5px transparent dashed;
+  }
+
+  &[placement='left-end'] .v-popper-arrow::before {
+    left: 1px;
+    border-left: 5px solid #ccc;
+  }
+
+  &[placement='left-end'] .v-popper-arrow::after {
+    border-left: 5px solid #fff;
+  }
+}
+
+@mixin arrowLeftDeviation() {
+  @include top-start();
+  @include top();
+  @include top-end();
+  @include bottom-start();
+  @include bottom();
+  @include bottom-end();
+  @include right-start();
+  @include right();
+  @include right-end();
+  @include left-start();
+  @include left();
+  @include left-end();
+}

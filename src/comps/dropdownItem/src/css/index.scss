@@ -1,0 +1,25 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-dropdown-item {
+  padding: 5px 10px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+  color: #606266;
+  cursor: pointer;
+
+  &:hover {
+    color: #66b1ff;
+    background-color: #ecf5ff;
+  }
+
+  &.disabled {
+    color: #bbb;
+    user-select: none;
+    cursor: not-allowed;
+  }
+
+  &.divided {
+    border-top: 1px solid #ebeef5;
+  }
+}

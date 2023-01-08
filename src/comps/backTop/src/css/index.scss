@@ -1,0 +1,22 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-backTop {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: normal;
+  font-size: 14px;
+  color: #409eff;
+  background-color: #fff;
+  box-shadow: 0 0 12px #0000001a;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f2f6fc;
+  }
+}

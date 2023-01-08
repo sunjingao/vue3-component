@@ -1,0 +1,32 @@
+@import '../../../../css/transition/index';
+@import '../../../../css/config/index';
+
+.#{$pre}-loading {
+  position: absolute;
+  font-weight: normal;
+  color: #409eff;
+  background-color: #0000004d;
+
+  @include transition-time();
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+
+    .loading-img {
+      display: inline-block;
+      font-size: 30px;
+      vertical-align: middle;
+    }
+
+    .text {
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+}

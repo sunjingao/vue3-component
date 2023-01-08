@@ -1,0 +1,337 @@
+
+.vInputDoc {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  vertical-align: middle;
+}
+
+.vAutoDoc {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  vertical-align: middle;
+}
+
+.vProgressDoc {
+  display: inline-block;
+  margin-left: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+.vTooltipDoc {
+  &.box {
+    margin-left: 150px;
+    width: 400px;
+  }
+
+  .top {
+    text-align: center;
+  }
+
+  .left {
+    float: left;
+    width: 60px;
+  }
+
+  .right {
+    float: right;
+    width: 60px;
+  }
+
+  .bottom {
+    clear: both;
+    text-align: center;
+  }
+
+  .item {
+    margin: 4px;
+  }
+
+  .left .v-tooltip__popper,
+  .right .v-tooltip__popper {
+    padding: 8px 10px;
+  }
+
+  .themeItem {
+    margin: 4px;
+  }
+}
+
+.vBadgeColorDoc {
+  background-color: blue !important;
+}
+
+.vTabsDoc {
+  position: relative;
+  width: 700px;
+  height: 300px;
+  border: 1px solid gray;
+
+  &.tabs-position-mt10 {
+    margin-top: 10px;
+  }
+
+  .tabs-position-content {
+    margin-top: 50px;
+    margin-left: 180px;
+  }
+}
+
+.vPopoverDoc {
+  .popperBody {
+    width: 200px;
+    height: 200px;
+    overflow: auto;
+  }
+
+  .body-content {
+    width: 500px;
+  }
+}
+
+.vCardDoc {
+  &.first {
+    width: 480px;
+
+    .text {
+      font-size: 14px;
+    }
+
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+      display: table;
+      content: "";
+    }
+
+    .clearfix:after {
+      clear: both
+    }
+  }
+
+  &.second {
+    .box {
+      width: 300px;
+    }
+
+    .time {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .bottom {
+      margin-top: 13px;
+      line-height: 12px;
+    }
+
+    .button {
+      padding: 0;
+      float: right;
+    }
+
+    .image {
+      width: 100%;
+      display: block;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+      display: table;
+      content: "";
+    }
+
+    .clearfix:after {
+      clear: both
+    }
+
+    .contentClass {
+      padding: 0;
+    }
+  }
+}
+
+.vImageDoc {
+
+  &.mt60 {
+    margin-top: 60px;
+  }
+
+  &.demoImage {
+    display: flex;
+    width: 1000px;
+
+    .block {
+      flex: 1;
+    }
+
+    .block:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    .imageSize {
+      width: 300px;
+      height: 200px;
+    }
+
+    .mt60 {
+      margin-top: 60px;
+    }
+  }
+
+  &.lazy {
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+    overflow: auto;
+
+    .lazy-block {
+      width: 200px;
+      height: 300px;
+    }
+  }
+}
+
+.vBackTopDoc {
+  width: 200px;
+  height: 200px;
+  border: 1px solid gray;
+  overflow: auto;
+
+  .testpart {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+.vInfiniteDoc {
+  border: 1px solid gray;
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+
+  .infinite-ul {
+    list-style-type: none;
+  }
+
+  .infinite-list-item {
+    width: 80%;
+    height: 100px;
+    line-height: 100px;
+    background: #e8f3fe;
+    margin: 10px;
+    color: #7dbcfc;
+  }
+
+  .infinite-footer {
+    margin: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #5e6d82;
+    text-align: center;
+  }
+}
+
+.vLoadingDoc {
+  .loading-all {
+    width: 100px;
+    height: 100px;
+    border: 1px solid gray;
+    overflow: auto;
+  }
+}
+
+.vDropdownDoc {
+  .v-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+}
+
+.vStepsDoc {
+  .steps-mt12 {
+    margin-top: 12px;
+  }
+}
+
+.vDialogDoc {
+  .v-ml5 {
+    margin-left: 5px;
+  }
+}
+
+.vmb20 {
+  margin-bottom: 20px;;
+}
+
+.vCarouselDoc {
+
+  .mb20 {
+    margin-bottom: 20px;
+  }
+
+  .border{
+    border: 1px solid gray;
+  }
+
+  .center{
+    text-align: center;
+  }
+}
+
+.vTimelineDoc {
+  .circular-test {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: #e4e7ed;
+  }
+
+  .line-test {
+    width: 2px;
+    height: calc(100% - 10px);
+    margin-left: 9px;
+    background-color: #e4e7ed;
+  }
+
+  .line-test.isLast {
+    height: 0;
+  }
+}
+
+.vTreeDoc {
+  .v-tree-test {
+    display: inline-block;
+    border: 1px solid gray;
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.vNavMenuDoc {
+  .bc{
+    position: relative;
+    width: 700px;
+    height: 300px;
+    border: 1px solid gray;
+  }
+  .v-tree-test {
+    display: inline-block;
+    border: 1px solid gray;
+    width: 300px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

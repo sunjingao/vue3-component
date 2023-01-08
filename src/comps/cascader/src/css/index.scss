@@ -1,0 +1,53 @@
+@import '../../../../css/popper/arrow';
+@import '../../../../css/transition/index';
+@import '../../../../css/config/index';
+
+.#{$pre}-cascader {
+  position: relative;
+  display: inline-block;
+
+  .#{$pre}-input-content {
+    padding: 0 26px 0 15px !important;
+  }
+
+  .select-direction {
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 0;
+    display: inline-block;
+    width: 26px;
+    text-align: center;
+    pointer-events: none;
+
+    > i {
+      display: inline-block;
+
+      @include transition-time();
+
+      &.up {
+        transform: rotate(-180deg);
+        transform-origin: center center;
+      }
+    }
+  }
+
+  .#{$pre}-popper {
+    border: 1px solid #dcdfe6;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 12px #0000001a;
+
+    .#{$pre}-popper-content {
+      max-height: 300px;
+      padding: 5px 0;
+      overflow: auto;
+    }
+
+    .#{$pre}-panel {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    @include arrowLeftDeviation();
+  }
+}

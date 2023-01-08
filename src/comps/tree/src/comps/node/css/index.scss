@@ -1,0 +1,46 @@
+@import '../../../../../../css/transition/index';
+
+.v-tree-node {
+  a {
+    color: inherit;
+  }
+
+  .v-checkbox {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .v-tree-li {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+
+    .v-icon-direction {
+      position: absolute;
+      display: inline-block;
+    }
+
+    .v-parent-not-expand::before {
+      display: inline-block;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+
+      @include transition-time();
+    }
+
+    &.selected {
+      color: #409eff;
+    }
+
+    &.disabled {
+      color: #c0c4cc;
+      cursor: not-allowed;
+    }
+
+    &:not(.disabled):hover {
+      background-color: #f5f7fa;
+      cursor: pointer;
+    }
+  }
+}

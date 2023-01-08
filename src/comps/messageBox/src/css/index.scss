@@ -1,0 +1,66 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-message-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  padding: 10px;
+  border: 1px solid #ebeef5;
+  border-radius: 5px;
+  font-weight: normal;
+  color: #606266;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+
+  .mt5 {
+    margin-top: 5px;
+  }
+
+  .ml10 {
+    margin-left: 10px;
+  }
+
+  .title-part {
+    display: flex;
+    padding: 10px 0;
+    font-size: 1rem;
+
+    .title-content {
+      flex: 2;
+      font-size: 18px;
+      line-height: 2;
+      color: #303133;
+    }
+
+    .close-icon {
+      cursor: pointer;
+    }
+
+    .close-icon:hover {
+      color: #79bbff;
+    }
+  }
+
+  .content-part {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+
+    .text {
+      padding: 5px 0;
+    }
+  }
+
+  .button-part {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0 5px;
+
+    .#{$pre}-button {
+      font-size: 14px;
+    }
+  }
+}

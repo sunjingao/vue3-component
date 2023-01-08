@@ -1,0 +1,27 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-page-header {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.5;
+  color: #303133;
+
+  .title-part {
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .separate-part {
+    margin-left: 20px;
+    font-weight: 300;
+    color: #dcdfe6;
+  }
+
+  .content-part {
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-breadcrumbItem {
+  position: relative;
+  display: inline-flex;
+  padding: 5px 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: #303133;
+
+  &.showHref {
+    font-weight: 700;
+
+    &:hover {
+      color: #409eff;
+      cursor: pointer;
+    }
+  }
+
+  a {
+    font-weight: 700;
+    color: #303133;
+
+    &:hover {
+      color: #409eff;
+      cursor: pointer;
+    }
+  }
+
+  .separator {
+    margin: 0 6px;
+    font-weight: normal;
+
+    &.separator {
+      color: #303133;
+      cursor: default;
+    }
+  }
+
+  &:last-child .separator {
+    display: none;
+  }
+}

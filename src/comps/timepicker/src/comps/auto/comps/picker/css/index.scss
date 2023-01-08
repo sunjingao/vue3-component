@@ -1,0 +1,55 @@
+@import '../../../../../../../../css/popper/arrow';
+@import '../../../../../../../../css/config/index';
+
+.hour-and-minute-and-second-part {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .showBorder {
+    border: 1px solid #e4e7ed;
+  }
+
+  .is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  :not(.is-disabled) {
+    cursor: pointer;
+  }
+
+  .#{$pre}-hour-or-minute-or-second-part_ul {
+    display: inline-block;
+    list-style: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::before {
+      position: absolute;
+      z-index: 100;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #e4e7ed;
+      content: ' ';
+    }
+
+    &::after {
+      position: absolute;
+      z-index: 100;
+      top: 60%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #e4e7ed;
+      content: ' ';
+    }
+
+    li {
+      text-align: center;
+      user-select: none;
+    }
+  }
+}

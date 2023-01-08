@@ -1,0 +1,46 @@
+@import '../../../../css/config/index';
+
+.#{$pre}-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .#{$pre}-switch-before {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .#{$pre}-switch-behind {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  .#{$pre}-switch-middle {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    .#{$pre}-switch-middle-move-circle {
+      position: absolute;
+      top: 0;
+      border-radius: 50%;
+    }
+  }
+}

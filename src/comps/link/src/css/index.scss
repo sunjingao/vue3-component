@@ -1,0 +1,94 @@
+@import '../../../../css/config/index';
+
+@mixin link-type() {
+  &.default {
+    &:hover {
+      color: #66b1ff;
+    }
+
+    &:active {
+      color: #3a8ee6;
+    }
+  }
+
+  &.primary {
+    color: #409eff;
+
+    &:hover {
+      color: #66b1ff;
+    }
+
+    &:active {
+      color: #3a8ee6;
+    }
+  }
+
+  &.success {
+    color: #67c23a;
+
+    &:hover {
+      color: #85ce61;
+    }
+
+    &:active {
+      color: #5daf34;
+    }
+  }
+
+  &.info {
+    color: #909399;
+
+    &:hover {
+      color: #a6a9ad;
+    }
+
+    &:active {
+      color: #82848a;
+    }
+  }
+
+  &.warning {
+    color: #e6a23c;
+
+    &:hover {
+      color: #ebb563;
+    }
+
+    &:active {
+      color: #cf9236;
+    }
+  }
+
+  &.danger {
+    color: #f56c6c;
+
+    &:hover {
+      color: #f78989;
+    }
+
+    &:active {
+      color: #dd6161;
+    }
+  }
+}
+
+.#{$pre}-link {
+  font-weight: normal;
+  font-size: 1rem;
+  color: #606266;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.5;
+    user-select: none;
+    cursor: not-allowed;
+  }
+
+  &:not(.disabled) {
+    &.underline:hover {
+      text-decoration: underline;
+    }
+
+    @include link-type();
+  }
+}
