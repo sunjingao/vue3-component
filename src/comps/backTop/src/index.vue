@@ -1,10 +1,10 @@
 <template>
   <div
     v-show="isShowRf"
-    :class="[`${CLS_PRE}-backTop`]"
+    :class="[`${CLS_PRE}-back-top`]"
     :style="{
-      right: right + 'px',
-      bottom: bottom + 'px',
+      right: right,
+      bottom: bottom,
       zIndex: zIndex,
     }"
     @click="handleClick"

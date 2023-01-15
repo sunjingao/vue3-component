@@ -63,7 +63,7 @@ export default defineComponent({
     }
 
     function handleClick(index) {
-      if (props.disabled) {
+      if (props.disabled || props.modelValue === index + 1) {
         return;
       }
       shownIndexRf.value = index;

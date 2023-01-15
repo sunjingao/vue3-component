@@ -20,13 +20,13 @@ const PROPS_DES = {
   },
   width: {
     required: false,
-    type: Number,
-    default: 40,
+    type: String,
+    default: '40px',
   },
   height: {
     required: false,
-    type: Number,
-    default: 20,
+    type: String,
+    default: '20px',
   },
   disabled: {
     required: false,

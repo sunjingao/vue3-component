@@ -1,18 +1,12 @@
 <template>
   <div
     v-if="isShowRf"
-    :class="[`${CLS_PRE}-alert`]"
+    :class="[`${CLS_PRE}-alert`, type]"
     :style="{ zIndex: zIndex }"
   >
     <!--最外面加一层元素的原因是在message中会改变最外面的position为fixed，如果是flex布局会有问题-->
     <div
-      :class="[
-        `${CLS_PRE}-alert-part`,
-        type,
-        {
-          'is-center': textCenter,
-        },
-      ]"
+      :class="[`${CLS_PRE}-alert-part`, { 'is-center': textCenter }]"
       :style="{
         textAlign: !!textCenter ? 'center' : 'left',
       }"
@@ -29,7 +23,8 @@
         ></i>
         <i v-if="type === 'tip'" :class="[`iconfont`, `icon-v-tip`]"></i>
       </div>
-      <div :class="[`content`]">
+
+      <div :class="[`content-part`]">
         <div :class="[`title`]">
           <div v-if="$slots.title">
             <slot name="title"></slot>
@@ -38,15 +33,16 @@
             {{ title }}
           </div>
         </div>
-        <div :class="[`description`]">
+        <div :class="[`content`]">
           <slot></slot>
         </div>
       </div>
-      <div v-if="closable" :class="[`close`]" @click="handleClose">
-        <div v-if="$slots.close"></div>
-        <div v-else-if="closeText">{{ closeText }}</div>
-        <div v-else>×</div>
-      </div>
+    </div>
+
+    <div v-if="closable" :class="[`close`]" @click="handleClose">
+      <div v-if="$slots.close"></div>
+      <div v-else-if="closeText">{{ closeText }}</div>
+      <div v-else>×</div>
     </div>
   </div>
 </template>

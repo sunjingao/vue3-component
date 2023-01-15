@@ -1,12 +1,12 @@
 # Transfer 穿梭框
 
-穿梭框
+操作两类数据的划分
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -14,7 +14,7 @@
   <v-transfer
     :sourceData="sourceDataRf"
     :targetData="targetDataRf"
-    @change="transfer">
+    @change="change">
   </v-transfer>
 </template>
 <script>
@@ -105,15 +105,14 @@
         }
       ]);
 
-      function transfer(value) {
-        console.log("this is in v-transfer");
-        console.log(value);
+      function change(value) {
+        console.log("change:", value);
       }
 
       return {
         sourceDataRf,
         targetDataRf,
-        transfer,
+        change,
       }
     },
   }
@@ -126,13 +125,13 @@
 
 禁止操作条目
 
-:::demo 通过添加disabled禁止操作
+:::demo
 
 ```html
 
 <template>
 
-  <v-transfer :sourceData="sourceDataRf" :targetData="targetDataRf" @change="transfer">
+  <v-transfer :sourceData="sourceDataRf" :targetData="targetDataRf" @change="change">
 
   </v-transfer>
 
@@ -243,15 +242,14 @@
         }
       ]);
 
-      function transfer(value) {
-        console.log("this is in v-transfer");
-        console.log(value);
+      function change(value) {
+        console.log("change:", value);
       }
 
       return {
         sourceDataRf,
         targetDataRf,
-        transfer
+        change
       }
     }
   }
@@ -273,7 +271,7 @@
   <v-transfer
     :sourceData="sourceDataRf"
     :targetData="targetDataRf"
-    @change="transfer"
+    @change="change"
     :titles="['源数据', '目标数据']">
     <template #source-footer>
       <div style="line-height: 30px;background-color: #f4f4f4;">源数据footer</div>
@@ -371,15 +369,14 @@
         }
       ]);
 
-      function transfer(value) {
-        console.log("this is in v-transfer");
-        console.log(value);
+      function change(value) {
+        console.log("change:", value);
       }
 
       return {
         sourceDataRf,
         targetDataRf,
-        transfer,
+        change,
       }
     },
   }
@@ -400,7 +397,7 @@
   <v-transfer
     :sourceData="sourceDataRf"
     :targetData="targetDataRf"
-    @change="transfer"
+    @change="change"
     filterable>
   </v-transfer>
 </template>
@@ -492,15 +489,14 @@
         }
       ]);
 
-      function transfer(value) {
-        console.log("this is in v-transfer");
-        console.log(value);
+      function change(value) {
+        console.log("change:", value);
       }
 
       return {
         sourceDataRf,
         targetDataRf,
-        transfer,
+        change,
       }
     },
   }

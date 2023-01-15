@@ -1,6 +1,6 @@
 # Notification
 
-Notification 通知
+用于信息提示，可出现在页面的几个区域
 
 #### 基本用法
 
@@ -12,7 +12,7 @@ Notification 通知
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -50,7 +50,7 @@ Notification 通知
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -88,10 +88,10 @@ Notification 通知
 
 <template>
   <div>
-    <button @click="open('right-top')">rightTop</button>
-    <button @click="open('right-bottom')">rightBottom</button>
-    <button @click="open('left-bottom')">leftBottom</button>
-    <button @click="open('left-top')">leftTop</button>
+    <v-button @click="open('right-top')" class="ml20">rightTop</v-button>
+    <v-button @click="open('right-bottom')" class="ml20">rightBottom</v-button>
+    <v-button @click="open('left-bottom')" class="ml20">leftBottom</v-button>
+    <v-button @click="open('left-top')" class="ml20">leftTop</v-button>
   </div>
 </template>
 <script>
@@ -130,7 +130,7 @@ Notification 通知
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>

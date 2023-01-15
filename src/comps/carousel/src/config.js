@@ -22,8 +22,8 @@ const PROPS_DES = {
   },
   height: {
     require: false,
-    type: Number,
-    default: 300,
+    type: String,
+    default: '300px',
   },
   trigger: {
     require: false,

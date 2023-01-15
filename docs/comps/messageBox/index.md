@@ -1,6 +1,6 @@
 # MessageBox 弹框
 
-MessageBox 弹框
+模拟系统的消息提示框而实现的一套模态对话框组件，用于消息提示、确认消息和提交内容
 
 #### 消息类型提示
 
@@ -12,7 +12,7 @@ MessageBox 弹框
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -52,7 +52,7 @@ MessageBox 弹框
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -113,7 +113,7 @@ MessageBox 弹框
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -152,7 +152,7 @@ MessageBox 弹框
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -194,7 +194,7 @@ MessageBox 弹框
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>
@@ -210,7 +210,7 @@ MessageBox 弹框
           type: 'prompt',
           title: '这是标题',
           content: '这是内容',
-          cancelCallBack(val) {
+          cancelCallBack() {
             const message = ins.$message({
               title: '取消失败',
               type: 'error'
@@ -218,15 +218,10 @@ MessageBox 弹框
             message.open();
             return false;
           },
-          confirmCallBack(val) {
-            const message = ins.$message({
-              title: '确认失败',
-              type: 'error'
-            });
-            message.open();
-            return false;
+          confirmCallBack() {
+            return true;
           },
-          closeCallBack(val) {
+          closeCallBack() {
             const message = ins.$message({
               title: '关闭失败',
               type: 'error'

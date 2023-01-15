@@ -1,146 +1,103 @@
-/*
- * checkbox改变规则：
- * 初始化时：子节点的check优先级更高，如果没设置check，默认是false
- * disabled 只受自己的nodeList的状态影响，不会受父节点状态的影响，即使设置checkedAll，也不会收父节点的影响
- *
- * 状态说明：
- *         0：自己及子元素都没被选中，
- *         1：除disabled为true的节点外，子节点非全选（一种情况是全部选，另一种情况是选了一部分），
- *         2：除disabled为true的节点外，子节点全选，
- *         3：自己及子元素全被选中
- *
- *
- * */
+import { computed, getCurrentInstance, ref, watch } from 'vue';
+import { CHECK_TYPES, EMITS } from '@/comps/tree/src/config';
 
-export function useCheckbox(setting) {
-  let noNodeListNodeArr = [];
+export function useCheckbox(checkedOpsRf, nodeListRf) {
+  const { emit } = getCurrentInstance();
 
-  /*
-   * 初始化时从根节点开始添加checked状态
-   * 工作就是给各个node的checked赋值，并给最里面的树节点的checkboxType赋值
-   * */
-  function initNodeCheckedUpToDown(node) {
-    node.forEach((x) => {
-      if (x.nodeList && x.nodeList.length > 0) {
-        x.nodeList.forEach((v) => {
-          if (!v.disabled) {
-            v.checked = x.checked;
-          }
-        });
-        initNodeCheckedUpToDown(x.nodeList);
-      } else if (!x.nodeList || x.nodeList.length === 0) {
-        if (x.checked) {
-          x.checkboxType = 3;
-        } else {
-          x.checkboxType = 0;
-        }
-        if (
-          !noNodeListNodeArr.some((v) => {
-            return v.parent === x.parent;
-          })
-        ) {
-          noNodeListNodeArr.push(x);
-        }
+  // 选中节点key值数组
+  const checkedKeysRf = ref([]);
+
+  function getIsBaseChild(node) {
+    return !node.nodeList || node.nodeList.length === 0;
+  }
+
+  function changeBaseChildCheck(item, type) {
+    if (type === CHECK_TYPES.ALL) {
+      if (!checkedKeysRf.value.includes(item.key)) {
+        checkedKeysRf.value.push(item.key);
       }
+    } else {
+      if (checkedKeysRf.value.includes(item.key)) {
+        const index = checkedKeysRf.value.indexOf(item.key);
+        checkedKeysRf.value.splice(index, 1);
+      }
+    }
+  }
+
+  function setNodeCheckType(node, type) {
+    if (getIsBaseChild(node)) {
+      changeBaseChildCheck(node, type);
+      return;
+    }
+
+    node.nodeList.forEach((item) => {
+      setNodeCheckType(item, type);
     });
   }
 
-  /*
-   * 自下而上改变状态
-   * 更改各个节点的checkboxType
-   * */
-  function initNodeCheckedDownToUp(nodeList) {
-    const nodeListArr = [];
-    nodeList.forEach((x) => {
-      if (!x.parent) {
+  function setSpecialChildNodes(nodeList) {
+    nodeList.forEach((item) => {
+      if (checkedOpsRf.value.defaultCheckedKeys.includes(item.key)) {
+        setNodeCheckType(item, CHECK_TYPES.ALL);
         return;
       }
-      if (
-        x.parent.nodeList.every((v) => {
-          return v.checkboxType === 0;
-        })
-      ) {
-        x.parent.checkboxType = 0;
-      } else if (
-        x.parent.nodeList.every((v) => {
-          return v.checkboxType === 3;
-        })
-      ) {
-        x.parent.checkboxType = 3;
-      } else if (
-        x.parent.nodeList
-          .filter((v) => !v.disabled)
-          .every((v) => {
-            return v.checkboxType === 3 || v.checkboxType === 2;
-          })
-      ) {
-        x.parent.checkboxType = 2;
-      } else {
-        x.parent.checkboxType = 1;
-      }
-
-      if (
-        !!x.parent &&
-        !nodeListArr.some((v) => {
-          return v.parent === x.parent;
-        })
-      ) {
-        nodeListArr.push(x.parent);
+      if (!getIsBaseChild(item)) {
+        setSpecialChildNodes(item.nodeList);
       }
     });
+  }
 
-    if (nodeListArr.length > 0) {
-      initNodeCheckedDownToUp(nodeListArr);
+  function resetCheckKeys() {
+    if (checkedOpsRf.value.isShow === false) {
+      return (checkedKeysRf.value = []);
+    }
+
+    if (checkedOpsRf.value.checkedAll) {
+      for (const item of Object.values(nodeListRf.value)) {
+        setNodeCheckType(item, CHECK_TYPES.ALL);
+      }
+    }
+
+    if (checkedOpsRf.value.defaultCheckedKeys) {
+      setSpecialChildNodes(nodeListRf.value);
     }
   }
 
-  /*
-   * 初始化checkbox节点状态 */
-  function initCheckboxType() {
-    if (!setting.viewSetting || !setting.viewSetting.showCheckBox) {
-      return;
+  watch(
+    () => checkedOpsRf.value,
+    () => {
+      resetCheckKeys();
+    },
+    {
+      immediate: true,
+      deep: true,
     }
+  );
 
-    noNodeListNodeArr = [];
-    // checkboxOperate  数据初始化后对全部节点的checkbox进行修改
-    if (setting.viewSetting.checkedAll) {
-      setting.nodeList.forEach((x) => {
-        if (!x.disabled) {
-          x.checked = true;
-        }
-      });
-    }
+  const isShowCheckboxCp = computed(() => {
+    return checkedOpsRf.value && checkedOpsRf.value.isShow;
+  });
 
-    noNodeListNodeArr = [];
-    initNodeCheckedUpToDown(setting.nodeList);
-    initNodeCheckedDownToUp(noNodeListNodeArr);
-  }
-
-  /*
-   * 当用户点击checkbox引发状态改变时 */
-  function changeCheckbox(item) {
-    if (!setting.viewSetting.showCheckBox) {
-      return;
-    }
-
-    item.checked = item.checkboxType === 1 || item.checkboxType === 0;
-
-    if (!!item.nodeList && item.nodeList.length > 0) {
-      item.nodeList.forEach((x) => {
-        if (!x.disabled) {
-          x.checked = item.checked;
-        }
-      });
-      initNodeCheckedUpToDown(item.nodeList);
+  function changeCheck(item) {
+    let res = -1;
+    if (
+      item.checkType === CHECK_TYPES.NONE ||
+      item.checkType === CHECK_TYPES.PART
+    ) {
+      res = CHECK_TYPES.ALL;
     } else {
-      initNodeCheckedUpToDown([item]);
+      res = CHECK_TYPES.NONE;
     }
 
-    initNodeCheckedDownToUp(noNodeListNodeArr);
+    setNodeCheckType(item, res);
+
+    emit(EMITS.CHECK, item, checkedKeysRf);
   }
 
   return {
-    initCheckboxType,
-    changeCheckbox,
+    checkedKeysRf,
+    isShowCheckboxCp,
+    changeCheck,
+    getIsBaseChild,
   };
 }

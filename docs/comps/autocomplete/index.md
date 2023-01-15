@@ -1,6 +1,6 @@
 # Autocomplete 搜索提示
 
-搜索提示
+可在下拉中展示输入内容的相关选择，方便用户选择
 
 #### 基本用法
 
@@ -11,7 +11,7 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
 ```html
 
 <template>
-  <v-autocomplete v-model="text" @select="select" @query="query" :options="ary"></v-autocomplete>
+  <v-autocomplete v-model="text" @change="change" @input="input" :options="ary"></v-autocomplete>
 </template>
 <script>
   import { ref } from 'vue';
@@ -37,19 +37,19 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
         { label: 15, value: 100 },
       ]);
 
-      function select(val) {
-        console.log('select:', val);
+      function change(val) {
+        console.log('change:', val);
       }
 
-      function query(val) {
-        console.log('query:', val);
+      function input(val) {
+        console.log('input:', val);
       }
 
       return {
         text,
         ary,
-        select,
-        query
+        change,
+        input
       }
     }
   }
@@ -67,7 +67,7 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
 ```html
 
 <template>
-  <v-autocomplete v-model="text" @select="select" @query="query" :options="ary">
+  <v-autocomplete v-model="text" @change="change" @input="input" :options="ary">
     <template #default="{ item }">
       <div>label:{{ item.label }} value:{{ item.value }}</div>
     </template>
@@ -98,19 +98,19 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
         { label: 15, value: 100 },
       ]);
 
-      function select(val) {
-        console.log('select:', val);
+      function change(val) {
+        console.log('change:', val);
       }
 
-      function query(val) {
+      function input(val) {
         console.log('query:', val);
       }
 
       return {
         text,
         ary,
-        select,
-        query
+        change,
+        input
       }
     }
   }
@@ -128,7 +128,7 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
 ```html
 
 <template>
-  <v-autocomplete v-model="text" @select="select" @query="query" :options="ary">
+  <v-autocomplete v-model="text" @change="change" @input="input" :options="ary">
     <template #front>
       <span class="vAutoDoc"></span>
     </template>
@@ -161,19 +161,19 @@ v-model设置选中内容的value，用户输入时回调query方法，用户选
         { label: 15, value: 100 },
       ]);
 
-      function select(val) {
-        console.log('select:', val);
+      function change(val) {
+        console.log('change:', val);
       }
 
-      function query(val) {
+      function input(val) {
         console.log('query:', val);
       }
 
       return {
         text,
         ary,
-        select,
-        query
+        change,
+        input
       }
     }
   }

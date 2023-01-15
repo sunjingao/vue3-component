@@ -24,13 +24,13 @@ const PROPS_DES = {
   },
   width: {
     require: false,
-    type: Number,
-    default: 400,
+    type: String,
+    default: '400px',
   },
-  spacing: {
+  height: {
     require: false,
-    type: Number,
-    default: 6,
+    type: String,
+    default: '6px',
   },
   format: {
     require: false,
@@ -38,8 +38,8 @@ const PROPS_DES = {
   },
   textWidth: {
     require: false,
-    type: Number,
-    default: 30,
+    type: String,
+    default: '30px',
   },
   textInside: {
     require: false,
@@ -54,8 +54,8 @@ const PROPS_DES = {
   // 圆的直径
   diameter: {
     require: false,
-    type: Number,
-    default: 150,
+    type: String,
+    default: '150px',
   },
 };
 

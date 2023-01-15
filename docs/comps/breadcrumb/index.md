@@ -1,6 +1,6 @@
 # Breadcrumb 面包屑
 
-Breadcrumb 面包屑
+路径信息，可跳转
 
 #### 基本用法
 

@@ -7,7 +7,7 @@
     </template>
     <template v-if="$slots.default">
       <div :class="[`content`]" :style="contentStyle">
-        <slot :class="[`content`]"></slot>
+        <slot></slot>
       </div>
     </template>
   </div>

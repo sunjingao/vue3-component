@@ -1,12 +1,12 @@
 ## Tabs 标签页
 
-Tabs 标签页
+标签内容切换
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -14,10 +14,10 @@ Tabs 标签页
 
   <div class="vTabsDoc">
     <v-tabs v-model="activeName" @tab-click="handleClick">
-      <v-tab-pane label="用户管理" value="first">111</v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third">333</v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third">角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
   </div>
 </template>
@@ -51,7 +51,7 @@ Tabs 标签页
 
 禁止操作条目
 
-:::demo 设置disabled属性
+:::demo
 
 ```html
 
@@ -60,10 +60,10 @@ Tabs 标签页
   <div class="vTabsDoc">
 
     <v-tabs v-model="activeName" @tab-click="handleClick">
-      <v-tab-pane label="用户管理" value="first"></v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third" disabled></v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third" disabled>角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
   </div>
 
@@ -99,19 +99,18 @@ Tabs 标签页
 
 允许关闭某个条目
 
-:::demo 设置closable属性
+:::demo
 
 ```html
 
 <template>
 
   <div class="vTabsDoc">
-
     <v-tabs v-model="activeName" closable @tab-click="handleClick" @close="close">
-      <v-tab-pane label="用户管理" value="first"></v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third" disabled></v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third" disabled>角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
   </div>
 </template>
@@ -147,66 +146,11 @@ Tabs 标签页
 
 :::
 
-#### 自定义标签展示
-
-自定义标签展示
-
-:::demo 使用默认插槽
-
-```html
-
-<template>
-
-  <div class="vTabsDoc">
-
-    <v-tabs v-model="activeName" @tab-click="handleClick">
-      <v-tab-pane label="用户管理" value="first">
-        <div>自定义用户</div>
-      </v-tab-pane>
-      <v-tab-pane label="配置管理" value="second">
-        <div>自定义配置</div>
-      </v-tab-pane>
-      <v-tab-pane label="角色管理" value="third">
-        <div>自定义角色</div>
-      </v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth">
-        <div>自定义定时</div>
-      </v-tab-pane>
-    </v-tabs>
-  </div>
-</template>
-
-<script>
-
-  import { ref } from 'vue';
-
-  export default {
-
-    setup() {
-
-      const activeName = ref('second');
-
-      function handleClick(value, label, event) {
-        console.log('value:', value, 'label:', label, 'event:', event);
-      }
-
-      return {
-        activeName,
-        handleClick,
-      }
-    }
-  }
-</script>
-
-```
-
-:::
-
 #### 类型
 
 卡片样式展示条目
 
-:::demo 设置type="card"
+:::demo
 
 ```html
 
@@ -215,10 +159,10 @@ Tabs 标签页
   <div class="vTabsDoc">
 
     <v-tabs v-model="activeName" @tab-click="handleClick" type="card">
-      <v-tab-pane label="用户管理" value="first"></v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third"></v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third">角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
 
   </div>
@@ -255,45 +199,34 @@ Tabs 标签页
 
 展示方位控制
 
-:::demo 设置position属性
+:::demo
 
 ```html
 
 <template>
-
-  <div class="vTabsDoc">
-
+  
+  <v-button-group>
+    <v-button @click.native="position='top'">上</v-button>
+    <v-button @click.native="position='right'" class="v-ml20">右</v-button>
+    <v-button @click.native="position='bottom'" class="v-ml20">下</v-button>
+    <v-button @click.native="position='left'" class="v-ml20">左</v-button>
+  </v-button-group>
+  <div class="vTabsDoc mt20">
     <v-tabs v-model="activeName" :position="position" @tab-click="handleClick">
-      <v-tab-pane label="用户管理" value="first"></v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third"></v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third">角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
-
-    <div class="tabs-position-content">
-      <v-button @click.native="position='top'">上</v-button>
-      <v-button @click.native="position='right'" class="v-ml20">右</v-button>
-      <v-button @click.native="position='bottom'" class="v-ml20">下</v-button>
-      <v-button @click.native="position='left'" class="v-ml20">左</v-button>
-    </div>
-
   </div>
-
-  <div class="vTabsDoc tabs-position-mt10">
-
+  
+  <div class="vTabsDoc mt20">
     <v-tabs v-model="activeName" :position="position" @tab-click="handleClick" type="card">
-      <v-tab-pane label="用户管理" value="first"></v-tab-pane>
-      <v-tab-pane label="配置管理" value="second"></v-tab-pane>
-      <v-tab-pane label="角色管理" value="third"></v-tab-pane>
-      <v-tab-pane label="定时任务补偿" value="fourth"></v-tab-pane>
+      <v-tab-pane label="用户管理" value="first">用户管理</v-tab-pane>
+      <v-tab-pane label="配置管理" value="second">配置管理</v-tab-pane>
+      <v-tab-pane label="角色管理" value="third">角色管理</v-tab-pane>
+      <v-tab-pane label="定时任务补偿" value="fourth">定时任务补偿</v-tab-pane>
     </v-tabs>
-
-    <div class="tabs-position-content">
-      <v-button @click.native="position='top'">上</v-button>
-      <v-button @click.native="position='right'" class="v-ml20">右</v-button>
-      <v-button @click.native="position='bottom'" class="v-ml20">下</v-button>
-      <v-button @click.native="position='left'" class="v-ml20">左</v-button>
-    </div>
   </div>
 </template>
 

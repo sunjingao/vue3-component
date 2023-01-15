@@ -1,12 +1,12 @@
 # Steps 步骤条
 
-Steps 步骤条
+展示当前状态
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -47,7 +47,7 @@ Steps 步骤条
 
 添加描述
 
-:::demo 设置description属性
+:::demo
 
 ```html
 
@@ -92,7 +92,7 @@ Steps 步骤条
 
 自定义标题和描述的展示
 
-:::demo 使用标题和描述的插槽
+:::demo
 
 ```html
 
@@ -145,7 +145,7 @@ Steps 步骤条
 
 标题和描述居中展示
 
-:::demo 设置align-center属性
+:::demo
 
 ```html
 
@@ -192,7 +192,7 @@ Steps 步骤条
 
 设置定宽的步骤条
 
-:::demo 设置space属性
+:::demo
 
 ```html
 
@@ -237,7 +237,7 @@ Steps 步骤条
 
 简介的步骤条
 
-:::demo 设置simple属性
+:::demo
 
 ```html
 
@@ -283,7 +283,7 @@ Steps 步骤条
 
 设置当前状态为错误
 
-:::demo 设置error属性为true
+:::demo
 
 ```html
 

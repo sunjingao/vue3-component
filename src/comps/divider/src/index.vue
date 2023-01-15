@@ -15,13 +15,7 @@
         </div>
       </template>
       <template v-else>
-        <div
-          :class="[
-            {
-              'show-line': showLine,
-            },
-          ]"
-        ></div>
+        <div :class="[{ 'show-line': showLine }]"></div>
       </template>
     </template>
   </div>

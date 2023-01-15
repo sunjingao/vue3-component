@@ -1,5 +1,5 @@
 <template>
-  <div :class="[classCp, `${CLS_PRE}-textarea`]" :style="styleCp">
+  <div :class="[`${CLS_PRE}-textarea`, classCp]" :style="styleCp">
     <textarea
       ref="textareaD"
       :value="modelValue"

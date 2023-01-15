@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[`${CLS_PRE}-carousel`]"
-    :style="{ height: `{height}px` }"
+    :style="{ height: height }"
     @mouseenter="isHoverRf = true"
     @mouseleave="isHoverRf = false"
   >
@@ -69,8 +69,8 @@ export default defineComponent({
 
   setup(props, { emit, expose }) {
     const isHoverRf = ref(false); // 当前是否在hover中
-    let intervalHandle = null; // 循环句柄
     const curActiveIndexRf = ref(-1); // 本次激活索引
+    let intervalHandle = null; // 循环句柄
 
     const { regisInfoArrRf, register } = useProvide();
 

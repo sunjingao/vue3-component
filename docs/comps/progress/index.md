@@ -1,12 +1,12 @@
 # Progress 进度条
 
-Progress 进度条
+展示进度
 
 #### 线型进度条
 
 线型进度条
 
-:::demo 线型进度条
+:::demo
 
 ```html
 
@@ -37,13 +37,13 @@ Progress 进度条
 
 百分比显示在进度条右侧
 
-:::demo 设置 text-inside 属性
+:::demo
 
 ```html
 
 <template>
-  <v-progress :text-inside="true" :spacing="26" :percentage="70"></v-progress>
-  <v-progress :text-inside="true" :spacing="24" :percentage="100"></v-progress>
+  <v-progress :text-inside="true" height="24px" :percentage="70"></v-progress>
+  <v-progress :text-inside="true" height="24px" :percentage="100"></v-progress>
 </template>
 <script>
   export default {}
@@ -56,12 +56,12 @@ Progress 进度条
 
 自定义描述内容
 
-:::demo 使用 text 插槽
+:::demo
 
 ```html
 
 <template>
-  <v-progress :text-inside="true" :spacing="26" :percentage="70">
+  <v-progress :text-inside="true" height="26px" :percentage="70">
     <template #text>
       自定义
     </template>
@@ -78,7 +78,7 @@ Progress 进度条
 
 自定义线条颜色
 
-:::demo 设置 bgColor 控制进度条颜色
+:::demo
 
 ```html
 
@@ -149,7 +149,7 @@ Progress 进度条
 
 以环形方式展示进度
 
-:::demo 设置 type="circle"
+:::demo
 
 ```html
 
@@ -179,13 +179,13 @@ Progress 进度条
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | percentage | 当前进度 | Number | - | - |
 | type | 进度条类型 | String | line/circle | line |
-| width | 线性和圆的进度条的间距 | -| - | 400 |
-| spacing | 间距 | Number | - | 6 |
+| width | 线性和圆的进度条的间距 | String | - | 400px |
+| height | 高度 | String | - | 6px |
 | format | 自定义展示内容函数 | Function | - | - |
-| textWidth | 线性进度条的描述内容宽度 | Number | - | 30 |
+| textWidth | 线性进度条的描述内容宽度 | String | - | 30px |
 | textInside | 线性滚动条的描述内容是否在内部 | Boolean | - | false |
 | bgColor | 选中时的背景颜色 | String, Array, Function | - | #409eff |
-| diameter | 圆形进度条的半径 | Number | - | 150 |
+| diameter | 圆形进度条的半径 | String | - | 150px |
 
 #### slot
 

@@ -16,9 +16,7 @@
               `iconfont`,
               `icon-v-down`,
               `arrow`,
-              {
-                up: isShowPopperRf,
-              },
+              { up: isShowPopperRf },
             ]"
           ></i>
         </v-button>
@@ -26,14 +24,7 @@
       <template v-else>
         <slot></slot>
         <i
-          :class="[
-            `iconfont`,
-            `icon-v-down`,
-            `arrow`,
-            {
-              up: isShowPopperRf,
-            },
-          ]"
+          :class="[`iconfont`, `icon-v-down`, `arrow`, { up: isShowPopperRf }]"
         ></i>
       </template>
     </div>

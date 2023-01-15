@@ -67,17 +67,10 @@
 
 .vTabsDoc {
   position: relative;
-  width: 700px;
   height: 300px;
-  border: 1px solid gray;
 
-  &.tabs-position-mt10 {
-    margin-top: 10px;
-  }
-
-  .tabs-position-content {
-    margin-top: 50px;
-    margin-left: 180px;
+  .content {
+    padding: 10px;
   }
 }
 
@@ -119,6 +112,7 @@
   &.second {
     .box {
       width: 300px;
+      display: inline-block;
     }
 
     .time {
@@ -277,12 +271,12 @@
     margin-bottom: 20px;
   }
 
-  .border{
-    border: 1px solid gray;
-  }
-
   .center{
     text-align: center;
+  }
+
+  .fc {
+    color: #e2e9f1;
   }
 }
 

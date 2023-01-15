@@ -26,14 +26,14 @@ const PROPS_DES = {
 
   right: {
     require: false,
-    type: Number,
-    default: 40,
+    type: String,
+    default: '40px',
   },
 
   bottom: {
     require: false,
-    type: Number,
-    default: 40,
+    type: String,
+    default: '40px',
   },
 
   timeout: {

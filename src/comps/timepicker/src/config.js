@@ -7,6 +7,7 @@ const PROVIDE_KEY = COMP_NAME;
 
 const EMITS = {
   SELECT: 'select',
+  CLEAR: 'clear',
 };
 
 const EMITS_DEC = Object.values(EMITS);

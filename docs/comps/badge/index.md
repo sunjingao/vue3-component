@@ -1,12 +1,12 @@
 ## Badge 标记
 
-Badge 标记
+区块标记信息
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -44,7 +44,7 @@ Badge 标记
 
 超过最大值，使用+
 
-:::demo 设置max值
+:::demo
 
 ```html
 
@@ -78,7 +78,7 @@ Badge 标记
 
 右上角以小红点形式进行提示
 
-:::demo 设置isDot属性
+:::demo
 
 ```html
 

@@ -33,11 +33,6 @@ const PROPS_DES = {
     type: Boolean,
     default: false,
   },
-  offset: {
-    require: false,
-    type: Number,
-    default: 10,
-  },
   // hover、focus、click、manual
   trigger: {
     require: false,

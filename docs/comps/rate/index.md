@@ -6,12 +6,12 @@
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
 <template>
-  <v-rate v-model="val" :max="5"></v-rate>
+  <v-rate v-model="val" @change="change" :max="5"></v-rate>
 </template>
 
 <script>
@@ -20,8 +20,14 @@
   export default {
     setup() {
       const val = ref(3);
+      
+      function change(val) {
+        console.log(val);
+      }
+      
       return {
-        val
+        val,
+        change,
       }
     }
   }
@@ -35,12 +41,12 @@
 
 自定义展示内容
 
-:::demo 设置text
+:::demo
 
 ```html
 
 <template>
-  <v-rate :texts="text" v-model="val" :max="5"></v-rate>
+  <v-rate :texts="text" v-model="val" @change="change" :max="5"></v-rate>
 </template>
 
 <script>
@@ -50,9 +56,15 @@
     setup() {
       const val = ref(3);
       let text = ref([11, 22, 33, 44, 55]);
+
+      function change(val) {
+        console.log(val);
+      }
+      
       return {
         val,
-        text
+        text,
+        change,
       }
     }
   }
@@ -65,12 +77,12 @@
 #### 只读
 
 只读，不可操作。允许图标部分选中。
-:::demo 设置 disabled，设置是否可操作
+:::demo
 
 ```html
 
 <template>
-  <v-rate v-model="val" disabled :max="5"></v-rate>
+  <v-rate v-model="val" @change="change" disabled :max="5"></v-rate>
 </template>
 <script>
   import { ref } from 'vue';
@@ -78,8 +90,14 @@
   export default {
     setup() {
       let val = ref(3.5);
+
+      function change(val) {
+        console.log(val);
+      }
+      
       return {
-        val
+        val,
+        change,
       }
     }
   }

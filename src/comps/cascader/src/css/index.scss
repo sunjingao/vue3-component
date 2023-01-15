@@ -43,11 +43,6 @@
       overflow: auto;
     }
 
-    .#{$pre}-panel {
-      display: flex;
-      align-items: flex-start;
-    }
-
     @include arrowLeftDeviation();
   }
 }

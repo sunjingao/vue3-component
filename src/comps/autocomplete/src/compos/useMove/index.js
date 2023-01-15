@@ -1,4 +1,5 @@
 import { nextTick } from 'vue';
+import { MOVE_TYPES } from '@/comps/autocomplete/src/config';
 
 export function useMove(popperContentRef, tipsData, activeIndexRef) {
   // 处理按键事件
@@ -12,10 +13,10 @@ export function useMove(popperContentRef, tipsData, activeIndexRef) {
     if (activeIndexRef.value < 0) {
       return (activeIndexRef.value = 0);
     }
-    if (type === 'up' && activeIndexRef.value !== 0) {
+    if (type === MOVE_TYPES.UP && activeIndexRef.value !== 0) {
       activeIndexRef.value -= 1;
     } else if (
-      type === 'down' &&
+      type === MOVE_TYPES.DOWN &&
       activeIndexRef.value !== tipsData.length - 1
     ) {
       activeIndexRef.value += 1;

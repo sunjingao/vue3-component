@@ -18,20 +18,16 @@
     border-color: #409eff;
   }
 
-  .#{$pre}-input-outer {
+  .#{$pre}-input-content {
     flex: 1;
+    min-width: 0;
     height: 100%;
+    padding: 0 15px;
+    border-radius: 5px;
 
-    .#{$pre}-input-content {
-      width: 100%;
-      height: 100%;
-      padding: 0 15px;
-      border-radius: 5px;
-
-      &.disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 

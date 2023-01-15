@@ -1,6 +1,6 @@
 # Input 输入框
 
-输入框相关操作
+可对输入内容进行控制，展示相关效果
 
 #### 宽高及字体大小
 
@@ -124,9 +124,9 @@
 
 :::
 
-#### 密码类型
+#### 输入长度限制
 
-可以对密码的显示和隐藏进行控制
+可对输入的长度进行控制
 
 :::demo
 
@@ -134,9 +134,10 @@
 
 <template>
   <v-input
-    v-model="inputValue"
     placeholder="请输入数据"
-    showPassword
+    showWordLimit
+    :maxLength="10"
+    v-model="inputValue"
     @input="input"
   ></v-input>
 </template>
@@ -162,9 +163,9 @@
 
 :::
 
-#### 输入长度限制
+#### 密码类型
 
-可对输入的长度进行控制
+可以对密码的显示和隐藏进行控制
 
 :::demo
 
@@ -172,10 +173,9 @@
 
 <template>
   <v-input
-    placeholder="请输入数据"
-    showWordLimit
-    :maxLength="10"
     v-model="inputValue"
+    placeholder="请输入数据"
+    showPassword
     @input="input"
   ></v-input>
 </template>
@@ -239,7 +239,7 @@
 
 :::
 
-#### 最大最小值
+#### 数字类型：最大最小值
 
 type为number数字类型时，可设置最大最小值，下面展示内容为只允许输入-9999~9999之间数据数字
 
@@ -279,7 +279,7 @@ type为number数字类型时，可设置最大最小值，下面展示内容为�
 
 :::
 
-#### 整数
+#### 数字类型：整数
 
 type为number数字类型时，可设置仅允许输入整数
 
@@ -318,7 +318,7 @@ type为number数字类型时，可设置仅允许输入整数
 
 :::
 
-#### 必填
+#### 数字类型：必填
 
 type为number数字类型时，提供必填功能，当离开输入框并且内容为空时，展示numberRequiredDefault设置的值。
 

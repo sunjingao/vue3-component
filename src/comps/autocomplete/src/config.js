@@ -30,4 +30,17 @@ const PROPS_DES = {
   },
 };
 
-export { COMP_NAME, CLS_PRE, EMITS, EMITS_DEC, PROPS_DES, PROVIDE_KEY };
+const MOVE_TYPES = {
+  UP: 'up',
+  DOWN: 'down',
+};
+
+export {
+  COMP_NAME,
+  CLS_PRE,
+  EMITS,
+  EMITS_DEC,
+  PROPS_DES,
+  PROVIDE_KEY,
+  MOVE_TYPES,
+};

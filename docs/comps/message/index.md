@@ -1,6 +1,6 @@
 # Message 消息提示
 
-Message 消息提示
+进行信息提示
 
 #### 基本用法
 
@@ -12,7 +12,7 @@ Message 消息提示
 
 <template>
   <div>
-    <button @click="openMes">click</button>
+    <v-button @click="openMes">click</v-button>
   </div>
 </template>
 <script>
@@ -51,7 +51,7 @@ Message 消息提示
 
 <template>
   <div>
-    <button @click="open">click</button>
+    <v-button @click="open">click</v-button>
   </div>
 </template>
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div :class="[`${CLS_PRE}-tabs`, position]">
-    <div :class="['title', position]">
+    <div :class="['title', position, type]">
       <template v-for="item in regisInfoArrRf">
         <div
           v-if="item.isShow"
@@ -58,6 +58,9 @@ export default defineComponent({
     );
 
     function setSelect(item, event) {
+      if (props.modelValue === item.value) {
+        return;
+      }
       emit(EMITS.TAB_CLICK, item.value, item.label, event);
       emit(EMITS.UPDATE_MODEL_VALUE, item.value);
     }

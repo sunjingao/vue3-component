@@ -1,29 +1,26 @@
 # Tree 树形控件
 
-属性控件基本用法
+树结构数据的展示与操作
 
 #### 基本用法
 
 标签基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
 <template>
 
   <div class="vTreeDoc">
-
     <div class="v-tree-test">
-
-      <v-tree :option="treeOption1"></v-tree>
-
-    </div>
-
-    <div class="v-tree-test">
-
-      <v-tree :option="treeOption2"></v-tree>
-
+      <v-tree
+        :nodeList="nodeList"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+      </v-tree>
     </div>
 
   </div>
@@ -37,307 +34,90 @@
   export default {
 
     setup() {
-
-      const treeOption1 = reactive({
-
-        callBack: {
-
-          onSelected(data) {
-
-            console.log('onSelected:', data);
-
-          }
-
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
         },
-
-        nodeList: [
-
-          {
-
-            key: "公司基本资料",
-
-            value: "公司基本资料",
-
-            nodeList: [
-
-              {
-
-                key: "公司介绍",
-
-                value: "公司介绍",
-
-              },
-
-              {
-
-                key: "股东及机构选股",
-
-                value: "股东及机构选股",
-
-                nodeList: [
-
-                  {
-
-                    key: "十大股东明细",
-
-                    value: "十大股东明细",
-
-                  },
-
-                  {
-
-                    key: "十大股东明细2",
-
-                    value: "十大股东明细2",
-
-                  },
-
-                  {
-
-                    key: "十大流通股东",
-
-                    value: "十大流通股东",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          },
-
-          {
-
-            key: "财务数据",
-
-            value: "财务数据",
-
-            nodeList: [
-
-              {
-
-                key: "财务摘要",
-
-                value: "财务摘要",
-
-                nodeList: [
-
-                  {
-
-                    key: "财务摘要1",
-
-                    value: "财务摘要1",
-
-                  },
-
-                  {
-
-                    key: "财务摘要2",
-
-                    value: "财务摘要2",
-
-                  }
-
-                ]
-
-              },
-
-              {
-
-                key: "主营构成",
-
-                value: "主营构成",
-
-                nodeList: [
-
-                  {
-
-                    key: "按项目名称展示",
-
-                    value: "按项目名称展示",
-
-                  },
-
-                  {
-
-                    key: "按行业分类",
-
-                    value: "按行业分类",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          }
-
-        ]
-
-      });
-
-      const treeOption2 = reactive({
-
-        callBack: {
-
-          onSelected(data) {
-
-            console.log('onSelected:', data);
-
-          }
-
-        },
-
-        viewSetting: {
-
-          expandAll: true,
-
-        },
-
-        nodeList: [
-
-          {
-
-            key: "公司基本资料",
-
-            value: "公司基本资料",
-
-            nodeList: [
-
-              {
-
-                key: "公司介绍",
-
-                value: "公司介绍",
-
-              },
-
-              {
-
-                key: "股东及机构选股",
-
-                value: "股东及机构选股",
-
-                nodeList: [
-
-                  {
-
-                    key: "十大股东明细",
-
-                    value: "十大股东明细",
-
-                  },
-
-                  {
-
-                    key: "十大股东明细2",
-
-                    value: "十大股东明细2",
-
-                  },
-
-                  {
-
-                    key: "十大流通股东",
-
-                    value: "十大流通股东",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          },
-
-          {
-
-            key: "财务数据",
-
-            value: "财务数据",
-
-            nodeList: [
-
-              {
-
-                key: "财务摘要",
-
-                value: "财务摘要",
-
-                nodeList: [
-
-                  {
-
-                    key: "财务摘要1",
-
-                    value: "财务摘要1",
-
-                  },
-
-                  {
-
-                    key: "财务摘要2",
-
-                    value: "财务摘要2",
-
-                  }
-
-                ]
-
-              },
-
-              {
-
-                key: "主营构成",
-
-                value: "主营构成",
-
-                nodeList: [
-
-                  {
-
-                    key: "按项目名称展示",
-
-                    value: "按项目名称展示",
-
-                  },
-
-                  {
-
-                    key: "按行业分类",
-
-                    value: "按行业分类",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          }
-
-        ]
-
-      });
-
-      return {
-
-        treeOption1,
-
-        treeOption2,
-
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+
+      function select(data) {
+        console.log('select:', data);
       }
 
-    },
+      function check(data) {
+        console.log('check:', data);
+      }
 
+      function expand(data) {
+        console.log('expand', data)
+      }
+      
+      return {
+        nodeList,
+        select,
+        check,
+        expand,
+      }
+    },
   }
 
 </script>
@@ -350,18 +130,22 @@
 
 父节点允许选中
 
-:::demo 设置 parentLevelTriggerSelected 为true
+:::demo
 
 ```html
 
 <template>
 
   <div class="vTreeDoc">
-
     <div class="v-tree-test">
-
-      <v-tree :option="treeOption"></v-tree>
-
+      <v-tree
+        :nodeList="nodeList"
+        :selectedOps="selectedOps"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+      </v-tree>
     </div>
 
   </div>
@@ -375,167 +159,96 @@
   export default {
 
     setup() {
-
-      const treeOption = reactive({
-
-        callBack: {
-
-          onSelected(data) {
-
-            console.log('onSelected:', data);
-
-          }
-
-        },
-
-        viewSetting: {
-
-          expandAll: true, // 是否展开全部
-
-          parentLevelTriggerSelected: true, // 含有子节点的节点点击文字会触发事件
-
-        },
-
-        nodeList: [
-
-          {
-
-            key: "公司基本资料",
-
-            value: "公司基本资料",
-
-            nodeList: [
-
-              {
-
-                key: "公司介绍",
-
-                value: "公司介绍",
-
-              },
-
-              {
-
-                key: "股东及机构选股",
-
-                value: "股东及机构选股",
-
-                nodeList: [
-
-                  {
-
-                    key: "十大股东明细",
-
-                    value: "十大股东明细",
-
-                  },
-
-                  {
-
-                    key: "十大股东明细2",
-
-                    value: "十大股东明细2",
-
-                  },
-
-                  {
-
-                    key: "十大流通股东",
-
-                    value: "十大流通股东",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          },
-
-          {
-
-            key: "财务数据",
-
-            value: "财务数据",
-
-            nodeList: [
-
-              {
-
-                key: "财务摘要",
-
-                value: "财务摘要",
-
-                nodeList: [
-
-                  {
-
-                    key: "财务摘要1",
-
-                    value: "财务摘要1",
-
-                  },
-
-                  {
-
-                    key: "财务摘要2",
-
-                    value: "财务摘要2",
-
-                  }
-
-                ]
-
-              },
-
-              {
-
-                key: "主营构成",
-
-                value: "主营构成",
-
-                nodeList: [
-
-                  {
-
-                    key: "按项目名称展示",
-
-                    value: "按项目名称展示",
-
-                  },
-
-                  {
-
-                    key: "按行业分类",
-
-                    value: "按行业分类",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          }
-
-        ]
-
-      })
-
-      return {
-
-        treeOption
-
+      const selectedOps = {
+        parentSelected: true,
       }
 
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+
+      function select(data) {
+        console.log('select:', data);
+      }
+
+      function check(data) {
+        console.log('check:', data);
+      }
+
+      function expand(data) {
+        console.log('expand', data)
+      }
+
+      return {
+        nodeList,
+        selectedOps,
+        select,
+        check,
+        expand,
+      }
     },
-
   }
-
 </script>
 
 ```
@@ -546,18 +259,22 @@
 
 禁止操作条目
 
-:::demo 设置disabled禁止选中
+:::demo
 
 ```html
 
 <template>
 
   <div class="vTreeDoc">
-
     <div class="v-tree-test">
-
-      <v-tree :option="treeOption"></v-tree>
-
+      <v-tree
+        :nodeList="nodeList"
+        :expandOps="expandOps"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+      </v-tree>
     </div>
 
   </div>
@@ -571,169 +288,98 @@
   export default {
 
     setup() {
-
-      const treeOption = reactive({
-
-        callBack: {
-
-          onSelected(data) {
-
-            console.log('onSelected:', data);
-
-          }
-
-        },
-
-        viewSetting: {
-
-          expandAll: true,
-
-        },
-
-        nodeList: [
-
-          {
-
-            key: "公司基本资料",
-
-            value: "公司基本资料",
-
-            nodeList: [
-
-              {
-
-                key: "公司介绍",
-
-                value: "公司介绍",
-
-              },
-
-              {
-
-                key: "股东及机构选股",
-
-                value: "股东及机构选股",
-
-                nodeList: [
-
-                  {
-
-                    key: "十大股东明细",
-
-                    value: "十大股东明细",
-
-                  },
-
-                  {
-
-                    key: "十大股东明细2",
-
-                    value: "十大股东明细2",
-
-                  },
-
-                  {
-
-                    key: "十大流通股东",
-
-                    value: "十大流通股东",
-
-                    disabled: true,
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          },
-
-          {
-
-            key: "财务数据",
-
-            value: "财务数据",
-
-            nodeList: [
-
-              {
-
-                key: "财务摘要",
-
-                value: "财务摘要",
-
-                disabled: true,
-
-                nodeList: [
-
-                  {
-
-                    key: "财务摘要1",
-
-                    value: "财务摘要1",
-
-                  },
-
-                  {
-
-                    key: "财务摘要2",
-
-                    value: "财务摘要2",
-
-                  }
-
-                ]
-
-              },
-
-              {
-
-                key: "主营构成",
-
-                value: "主营构成",
-
-                nodeList: [
-
-                  {
-
-                    key: "按项目名称展示",
-
-                    value: "按项目名称展示",
-
-                  },
-
-                  {
-
-                    key: "按行业分类",
-
-                    value: "按行业分类",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          }
-
-        ]
-
-      });
-
-      return {
-
-        treeOption
-
+      const expandOps = {
+        expandAll: true,
+        defaultExpandedKeys: []
       }
 
-    }
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              disabled: true,
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
 
+      function select(data) {
+        console.log('select:', data);
+      }
+
+      function check(data) {
+        console.log('check:', data);
+      }
+
+      function expand(data) {
+        console.log('expand', data)
+      }
+
+      return {
+        nodeList,
+        expandOps,
+        select,
+        check,
+        expand,
+      }
+    },
   }
-
 </script>
 
 ```
@@ -744,18 +390,22 @@
 
 默认展开特定节点
 
-:::demo 设置 expandAll 属性
+:::demo
 
 ```html
 
 <template>
 
   <div class="vTreeDoc">
-
     <div class="v-tree-test">
-
-      <v-tree :option="treeOption1"></v-tree>
-
+      <v-tree
+        :nodeList="nodeList"
+        :expandOps="expandOps"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+      </v-tree>
     </div>
 
   </div>
@@ -770,164 +420,97 @@
 
     setup() {
 
-      const treeOption1 = reactive({
-
-        callBack: {
-
-          onSelected(data) {
-
-            console.log('onSelected:', data);
-
-          }
-
-        },
-
-        viewSetting: {},
-
-        nodeList: [
-
-          {
-
-            key: "公司基本资料",
-
-            value: "公司基本资料",
-
-            nodeList: [
-
-              {
-
-                key: "公司介绍",
-
-                value: "公司介绍",
-
-              },
-
-              {
-
-                key: "股东及机构选股",
-
-                value: "股东及机构选股",
-
-                nodeList: [
-
-                  {
-
-                    key: "十大股东明细",
-
-                    value: "十大股东明细",
-
-                  },
-
-                  {
-
-                    key: "十大股东明细2",
-
-                    value: "十大股东明细2",
-
-                  },
-
-                  {
-
-                    key: "十大流通股东",
-
-                    value: "十大流通股东",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          },
-
-          {
-
-            key: "财务数据",
-
-            value: "财务数据",
-
-            expandNode: true,
-
-            nodeList: [
-
-              {
-
-                key: "财务摘要",
-
-                value: "财务摘要",
-
-                expandNode: true,
-
-                nodeList: [
-
-                  {
-
-                    key: "财务摘要1",
-
-                    value: "财务摘要1",
-
-                  },
-
-                  {
-
-                    key: "财务摘要2",
-
-                    value: "财务摘要2",
-
-                  }
-
-                ]
-
-              },
-
-              {
-
-                key: "主营构成",
-
-                value: "主营构成",
-
-                nodeList: [
-
-                  {
-
-                    key: "按项目名称展示",
-
-                    value: "按项目名称展示",
-
-                  },
-
-                  {
-
-                    key: "按行业分类",
-
-                    value: "按行业分类",
-
-                  }
-
-                ]
-
-              }
-
-            ]
-
-          }
-
-        ]
-
-      })
-
-      return {
-
-        treeOption1
-
+      const expandOps = {
+        expandAll: false,
+        defaultExpandedKeys: ['公司基本资料', '股东及机构选股']
       }
 
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+
+      function select(data) {
+        console.log('select:', data);
+      }
+
+      function check(data) {
+        console.log('check:', data);
+      }
+
+      function expand(data) {
+        console.log('expand', data)
+      }
+
+      return {
+        nodeList,
+        expandOps,
+        select,
+        check,
+        expand,
+      }
     },
-
   }
-
 </script>
 
 ```
@@ -938,196 +521,136 @@
 
 展示出多选框
 
-:::demo 设置 showCheckBox
+:::demo
 
 ```html
 
 <template>
+
   <div class="vTreeDoc">
     <div class="v-tree-test">
-      <v-tree :option="treeOption1"></v-tree>
+      <v-tree
+        :nodeList="nodeList"
+        :expandOps="expandOps"
+        :checkedOps="checkedOps"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+      </v-tree>
     </div>
-    <div class="v-tree-test">
-      <v-tree :option="treeOption2"></v-tree>
-    </div>
+
   </div>
+
 </template>
+
 <script>
-  import { reactive } from 'vue';
+
+  import { reactive} from 'vue';
 
   export default {
+
     setup() {
-      const treeOption1 = reactive({
-        callBack: {
-          onChecked(data) {
-            console.log('onChecked:', data);
-          },
-          onSelected(data) {
-            console.log('onSelected:', data);
-          }
-        },
-        viewSetting: {
-          expandAll: true,
-          showCheckBox: true,
-        },
-        nodeList: [
-          {
-            key: "公司基本资料",
-            value: "公司基本资料",
-            nodeList: [
-              {
-                key: "公司介绍",
-                value: "公司介绍",
-              },
-              {
-                key: "股东及机构选股",
-                value: "股东及机构选股",
-                nodeList: [
-                  {
-                    key: "十大股东明细",
-                    value: "十大股东明细",
-                  },
-                  {
-                    key: "十大股东明细2",
-                    value: "十大股东明细2",
-                  },
-                  {
-                    key: "十大流通股东",
-                    value: "十大流通股东",
-                    checked: true
-                  }
-                ]
-              }
-            ]
-          },
 
-          {
-            key: "财务数据",
-            value: "财务数据",
-            nodeList: [
-              {
-                key: "财务摘要",
-                value: "财务摘要",
-                nodeList: [
-                  {
-                    key: "财务摘要1",
-                    value: "财务摘要1",
-                  },
-                  {
-                    key: "财务摘要2",
-                    value: "财务摘要2",
-                  }
-                ]
-              },
-              {
-                key: "主营构成",
-                value: "主营构成",
-                nodeList: [
-                  {
-                    key: "按项目名称展示",
-                    value: "按项目名称展示",
-                    selected: true
-                  },
-                  {
-                    key: "按行业分类",
-                    value: "按行业分类",
-                    disabled: true,
-                    checked: true,
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      });
-      const treeOption2 = reactive({
-        callBack: {
-          onSelected(data) {
-            console.log('onSelected:', data);
-          }
-        },
-        viewSetting: {
-          expandAll: true,
-          showCheckBox: true,
-          checkedAll: true, // 是否全部选中
-        },
-        nodeList: [
-          {
-            key: "公司基本资料",
-            value: "公司基本资料",
-            nodeList: [
-              {
-                key: "公司介绍",
-                value: "公司介绍",
-              },
-              {
-                key: "股东及机构选股",
-                value: "股东及机构选股",
-                nodeList: [
-                  {
-                    key: "十大股东明细",
-                    value: "十大股东明细",
-                  },
-                  {
-                    key: "十大股东明细2",
-                    value: "十大股东明细2",
-                  },
-                  {
-                    key: "十大流通股东",
-                    value: "十大流通股东",
-                    checked: true
-                  }
-                ]
-              }
-            ]
-          },
+      const expandOps = {
+        expandAll: true,
+        defaultExpandedKeys: []
+      }
 
-          {
-            key: "财务数据",
-            value: "财务数据",
-            nodeList: [
-              {
-                key: "财务摘要",
-                value: "财务摘要",
-                nodeList: [
-                  {
-                    key: "财务摘要1",
-                    value: "财务摘要1",
-                  },
-                  {
-                    key: "财务摘要2",
-                    value: "财务摘要2",
-                  }
-                ]
-              },
-              {
-                key: "主营构成",
-                value: "主营构成",
-                nodeList: [
-                  {
-                    key: "按项目名称展示",
-                    value: "按项目名称展示",
-                    selected: true
-                  },
-                  {
-                    key: "按行业分类",
-                    value: "按行业分类",
-                    disabled: true,
-                    checked: true,
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      });
+      const checkedOps = {
+        isShow: true,
+        defaultCheckedKeys: ['公司基本资料']
+      }
+
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+
+      function select(data) {
+        console.log('select:', data);
+      }
+
+      function check(data) {
+        console.log('check:', data);
+      }
+
+      function expand(data) {
+        console.log('expand', data)
+      }
+
       return {
-        treeOption1,
-        treeOption2,
+        nodeList,
+        expandOps,
+        checkedOps,
+        select,
+        check,
+        expand,
       }
     },
   }
 </script>
+
 ```
 
 :::
@@ -1135,104 +658,133 @@
 #### 自定义样式
 
 自定义条目的展示样式
-:::demo 设置viewSetting的componentName为自定义组件名称
+
+:::demo
 
 ```html
 
 <template>
+
   <div class="vTreeDoc">
     <div class="v-tree-test">
-      <v-tree :option="treeOption1"></v-tree>
+      <v-tree
+        :nodeList="nodeList"
+        :expandOps="expandOps"
+        @select="select"
+        @check="check"
+        @expand="expand"
+      >
+        <template #default="{item}">
+          aaa{{ item.label }}
+        </template>
+      </v-tree>
     </div>
+
   </div>
+
 </template>
+
 <script>
+
   import { reactive } from 'vue';
 
   export default {
+
     setup() {
-      const treeOption1 = reactive({
-        callBack: {
-          onSelected(data) {
-            console.log('onSelected:', data);
-          }
-        },
-        viewSetting: {
-          componentName: 'test-tree'
-        },
-        nodeList: [
-          {
-            key: "公司基本资料",
-            value: "公司基本资料",
-            nodeList: [
-              {
-                key: "公司介绍",
-                value: "公司介绍",
-              },
-              {
-                key: "股东及机构选股",
-                value: "股东及机构选股",
-                nodeList: [
-                  {
-                    key: "十大股东明细",
-                    value: "十大股东明细",
-                  },
-                  {
-                    key: "十大股东明细2",
-                    value: "十大股东明细2",
-                  },
-                  {
-                    key: "十大流通股东",
-                    value: "十大流通股东",
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            key: "财务数据",
-            value: "财务数据",
-            expandNode: true,
-            nodeList: [
-              {
-                key: "财务摘要",
-                value: "财务摘要",
-                expandNode: true,
-                nodeList: [
-                  {
-                    key: "财务摘要1",
-                    value: "财务摘要1",
-                  },
-                  {
-                    key: "财务摘要2",
-                    value: "财务摘要2",
-                  }
-                ]
-              },
-              {
-                key: "主营构成",
-                value: "主营构成",
-                nodeList: [
-                  {
-                    key: "按项目名称展示",
-                    value: "按项目名称展示",
-                  },
-                  {
-                    key: "按行业分类",
-                    value: "按行业分类",
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      });
-      return {
-        treeOption1
+
+      const expandOps = {
+        expandAll: true,
+        defaultExpandedKeys: []
       }
-    }
+
+      const nodeList = reactive([
+        {
+          key: "公司基本资料",
+          label: "公司基本资料",
+          nodeList: [
+            {
+              key: "公司介绍",
+              label: "公司介绍",
+            },
+            {
+              key: "股东及机构选股",
+              label: "股东及机构选股",
+              nodeList: [
+                {
+                  key: "十大股东明细",
+                  label: "十大股东明细",
+                },
+                {
+                  key: "十大股东明细2",
+                  label: "十大股东明细2",
+                },
+                {
+                  key: "十大流通股东",
+                  label: "十大流通股东",
+                }
+              ]
+            }
+          ]
+        },
+        {
+          key: "财务数据",
+          label: "财务数据",
+          nodeList: [
+            {
+              key: "财务摘要",
+              label: "财务摘要",
+              nodeList: [
+                {
+                  key: "财务摘要1",
+                  label: "财务摘要1",
+                },
+                {
+                  key: "财务摘要2",
+                  label: "财务摘要2",
+                }
+              ]
+            },
+            {
+              key: "主营构成",
+              label: "主营构成",
+              nodeList: [
+                {
+                  key: "按项目名称展示",
+                  label: "按项目名称展示",
+                },
+                {
+                  key: "按行业分类",
+                  label: "按行业分类",
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+
+      function select(data) {
+        console.log('select:', data);
+      }
+
+      function check(data) {
+        console.log('check:', data);
+      }
+
+      function expand(data) {
+        console.log('expand', data)
+      }
+
+      return {
+        nodeList,
+        expandOps,
+        select,
+        check,
+        expand,
+      }
+    },
   }
 </script>
+
 ```
 
 :::
@@ -1243,23 +795,15 @@
 
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| option | 配置 | object | - | - |
-| option.viewSetting.showCheckBox | 展示checkbox | boolean | - | false |
-| option.viewSetting.checkedAll | 所有checkbox都选中 | boolean | - | false |
-| option.viewSetting.expandAll | 展开所有节点 | boolean | - | false |
-| option.viewSetting.parentLevelTriggerSelected | 点击父元素item也触发onSelected事件 | boolean | - | false |
-| option.viewSetting.componentName | 自定义组件名称 | String | - | - |
-| option.nodeSetting.key | 每个node的key | string | - | - |
-| option.nodeSetting.value | 每个node显示的值 | string | - | - |
-| option.nodeSetting.nodeList | 子节点列表 | array | - | - |
-| option.nodeSetting.disabled | 禁止选中 | boolean | - | false |
-| option.nodeSetting.selected | 文字是否被选中 | boolean | - | false |
-| option.nodeSetting.checked | 多选框是否默认选中 | boolean | - | false |
-| option.nodeSetting.expandNode | 是否展开子节点 | boolean | - | false |
+| nodeList | 展示节点数据 | Object | - | - |
+| expandOps | 展开项配置 | Object | - | { expandAll: true, defaultExpandedKeys: [] } |
+| checkedOps | 多选项配置 | Object | - | { isShow: false, checkedAll: false, defaultCheckedKeys: [] } |
+| selectedOps | 选中项配置 | Object | - | { parentSelected: false, defaultSelectedKeys: '' } |
 
-#### method
+#### event
 
 | 事件名称 | 说明 | 回调参数 |
 |---------- |-------- |---------- |
-| option.callBack.onChecked | checkbox选中回调 | 被选中的item | 
-| option.callBack.onSelected | 点击item回调 | 被选中的item | 
+| select | 选中触发 | item | 
+| check | 多选触发 | item, 选中的节点集合 | 
+| expand | 展开触发 | item, 展开的节点集合 | 

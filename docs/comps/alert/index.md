@@ -1,6 +1,6 @@
 # Alert 警告
 
-用于页面中展示重要的提示信息。
+展示不同类别的提示信息
 
 #### 基本用法
 
@@ -65,7 +65,7 @@
 
 设置关闭处的文字内容
 
-:::demo 设置close-text属性
+:::demo
 
 ```html
 
@@ -93,7 +93,7 @@
 
 设置描述文字
 
-:::demo 设置description属性
+:::demo
 
 ```html
 
@@ -121,7 +121,7 @@
 
 不同类型带有不同的icon
 
-:::demo 设置show-icon属性
+:::demo
 
 ```html
 
@@ -178,7 +178,7 @@
 
 图标和文字居中展示
 
-:::demo 设置 center 属性
+:::demo
 
 ```html
 

@@ -15,7 +15,7 @@ const EMITS_DEC = Object.values(EMITS);
 const PROPS_DES = {
   modelValue: {
     required: false,
-    type: Number,
+    type: [Number, String],
     default: 0,
   },
   controlsPosition: {

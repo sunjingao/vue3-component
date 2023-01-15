@@ -1,6 +1,6 @@
 @import '../../../../css/config/index';
 
-.#{$pre}-breadcrumbItem {
+.#{$pre}-breadcrumb-item {
   position: relative;
   display: inline-flex;
   padding: 5px 0;
@@ -10,7 +10,7 @@
   white-space: nowrap;
   color: #303133;
 
-  &.showHref {
+  &.show-href {
     font-weight: 700;
 
     &:hover {

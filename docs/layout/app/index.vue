@@ -84,11 +84,11 @@
                   <router-link to="/select">Select 选择器</router-link>
                 </li>
               </ul>
-              <!--              <ul class="menu-sub">-->
-              <!--                <li>-->
-              <!--                  <router-link to="/cascader">Cascader 级联选择器</router-link>-->
-              <!--                </li>-->
-              <!--              </ul>-->
+              <ul class="menu-sub">
+                <li>
+                  <router-link to="/cascader">Cascader 级联选择器</router-link>
+                </li>
+              </ul>
               <ul class="menu-sub">
                 <li>
                   <router-link to="/switch">Switch 开关</router-link>
@@ -141,11 +141,11 @@
                   <router-link to="/progress">Progress 进度条</router-link>
                 </li>
               </ul>
-              <!--              <ul class="menu-sub">-->
-              <!--                <li>-->
-              <!--                  <router-link to="/tree">Tree 树形控件</router-link>-->
-              <!--                </li>-->
-              <!--              </ul>-->
+              <ul class="menu-sub">
+                <li>
+                  <router-link to="/tree">Tree 树形控件</router-link>
+                </li>
+              </ul>
               <ul class="menu-sub">
                 <li>
                   <router-link to="/pagination">Pagination 分页</router-link>
@@ -199,11 +199,11 @@
                 href="javascript:javascript:void(0);"
                 >Navigation</a
               >
-              <!--              <ul class="menu-sub">-->
-              <!--                <li>-->
-              <!--                  <router-link to="/navMenu">NavMenu 导航菜单</router-link>-->
-              <!--                </li>-->
-              <!--              </ul>-->
+              <ul class="menu-sub">
+                <li>
+                  <router-link to="/navMenu">NavMenu 导航菜单</router-link>
+                </li>
+              </ul>
               <ul class="menu-sub">
                 <li>
                   <router-link to="/tabs">Tabs 标签页</router-link>

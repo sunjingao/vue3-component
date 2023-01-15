@@ -8,9 +8,9 @@
       ref="referenceD"
       @click="handleClickInput"
       :style="{
-        width: `${width}px`,
-        minHeight: `${minHeight}px`,
-        maxHeight: `${maxHeight}px`,
+        width: width,
+        minHeight: minHeight,
+        maxHeight: maxHeight,
       }"
       tabIndex="1"
     >
@@ -18,7 +18,7 @@
         <v-tag
           v-for="item in selectedArrCp"
           @close="handleCloseItem(item)"
-          :height="minHeight - 10 - 2"
+          :height="`calc(${minHeight} - 10px - 2px)`"
           :key="item.value"
           closeable
         >
@@ -28,7 +28,7 @@
       <template v-else>
         <span
           :class="[`${CLS_PRE}-self-placeholder`]"
-          :style="{ lineHeight: `${minHeight - 10 - 2}px` }"
+          :style="{ lineHeight: `calc(${minHeight} - 10px - 2px)` }"
         >
           {{ placeholder }}
         </span>

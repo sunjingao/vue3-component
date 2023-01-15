@@ -1,6 +1,6 @@
 # Button 按钮
 
-用于一个即时操作。
+提供点击功能
 
 #### 宽高
 
@@ -212,10 +212,10 @@
     <br/>
 
     <v-button-group type="danger" width="200px" height="50px" class="mt20">
-      <v-button>
+      <v-button @click="click">
         按钮2
       </v-button>
-      <v-button>
+      <v-button @click="click">
         按钮2
       </v-button>
     </v-button-group>

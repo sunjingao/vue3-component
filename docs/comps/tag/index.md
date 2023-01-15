@@ -1,12 +1,12 @@
 ## Tag 标签
 
-标签基本用法
+节点数据展示
 
 #### 基本用法
 
 标签基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -36,7 +36,7 @@
 
 带有删除功能
 
-:::demo 添加 closeable 属性
+:::demo
 
 ```html
 
@@ -71,12 +71,12 @@
 
 尺寸设置用法
 
-:::demo 设置 width 和 height 属性
+:::demo
 
 ```html
 
 <template>
-  <v-tag :width="100" :height="50">标签</v-tag>
+  <v-tag width="100px" height="50px">标签</v-tag>
 </template>
 <script>
   export default {
@@ -97,8 +97,8 @@
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | type | 类型 | String | ''/default/primary/success/info/warning/danger | '' |
 | closeable | 是否显示删除按钮 | Boolean | - | false |
-| width | 组件宽度 | Number, String | - | auto |
-| height | 组件高度 | Number | - | 32 |
+| width | 组件宽度 | String | - | auto |
+| height | 组件高度 | String | - | 32px |
 
 #### event
 

@@ -1,19 +1,20 @@
 # Cascader 级联选择器
 
-cascader 级联选择器
+有层级关系的信息展示，可选择
 
 #### 基本用法
 
-tipsArray属性设置展示数组，选中时回调autoSelected方法
+options属性设置展示数组，选中时回调select方法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
-    :tipsArray="cascaderArr" 
-    @autoSelected="autoSelected"
+  <v-cascader
+    v-model="modelValue"
+    :options="options"
+    @select="select"
   ></v-cascader>
 </template>
 <script>
@@ -21,7 +22,8 @@ tipsArray属性设置展示数组，选中时回调autoSelected方法
 
   export default {
     setup() {
-      const cascaderArr = ref([
+      const modelValue = ref(['zujian', 'form', 'checkbox']);
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
@@ -289,13 +291,14 @@ tipsArray属性设置展示数组，选中时回调autoSelected方法
         }
       ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
       return {
-        cascaderArr,
-        autoSelected
+        modelValue,
+        options,
+        select,
       }
     }
   }
@@ -308,38 +311,40 @@ tipsArray属性设置展示数组，选中时回调autoSelected方法
 
 hover 方式触发条目展示
 
-:::demo 设置 hoverTrigger 为 true
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
+
+  <v-cascader
     value=""
     :hoverTrigger="true"
-    :tipsArray="cascaderArr" 
-    @autoSelected="autoSelected"
+    :options="options"
+    @select="select"
   ></v-cascader>
 </template>
+
 <script>
+
   import { ref } from 'vue';
 
   export default {
+
     setup() {
-      let cascaderArr = ref([
+
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
-          selected: true,
           children: [
             {
               value: 'shejiyuanze',
               label: '设计原则',
-              selected: true,
               children: [
                 {
                   value: 'yizhi',
-                  label: '一致',
-                  selected: true,
+                  label: '一致'
                 },
                 {
                   value: 'fankui',
@@ -596,17 +601,18 @@ hover 方式触发条目展示
         }
       ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
       return {
-        cascaderArr,
-        autoSelected
+        options,
+        select
       }
     },
   }
 </script>
+
 ```
 
 :::
@@ -615,24 +621,29 @@ hover 方式触发条目展示
 
 禁止操作条目
 
-:::demo 设置 disabled 为 true
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
-    value="" 
-    :tipsArray="cascaderArr" 
-    @autoSelected="autoSelected"
+
+  <v-cascader
+    value=""
+    :options="options"
+    @select="select"
   ></v-cascader>
+
 </template>
 
 <script>
+
   import { ref } from 'vue';
 
   export default {
+
     setup() {
-      let cascaderArr = ref([
+
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
@@ -725,8 +736,7 @@ hover 方式触发条目展示
                 {
                   value: 'input-number',
                   label: 'InputNumber 计数器'
-                },
-                {
+                }, {
                   value: 'select',
                   label: 'Select 选择器'
                 },
@@ -902,17 +912,18 @@ hover 方式触发条目展示
         }
       ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
       return {
-        cascaderArr,
-        autoSelected,
+        options,
+        select,
       }
     }
   }
 </script>
+
 ```
 
 :::
@@ -921,23 +932,31 @@ hover 方式触发条目展示
 
 选中条目允许清空
 
-:::demo 设置 clearable 为 true
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
-    value="" 
-    :tipsArray="cascaderArr" 
-    @autoSelected="autoSelected"
+
+  <v-cascader
+    value=""
+    :options="options"
+    @select="select"
+    @clear="clear"
     clearable
   ></v-cascader>
+
 </template>
+
 <script>
 
+  import { ref } from 'vue';
+  
   export default {
+
     setup() {
-      let cascaderArr = [
+
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
@@ -1029,8 +1048,7 @@ hover 方式触发条目展示
                 {
                   value: 'input-number',
                   label: 'InputNumber 计数器'
-                },
-                {
+                }, {
                   value: 'select',
                   label: 'Select 选择器'
                 },
@@ -1204,19 +1222,25 @@ hover 方式触发条目展示
             }
           ]
         }
-      ]
+      ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
+      function clear(val) {
+        console.log('clear:', val);
+      }
+      
       return {
-        cascaderArr,
-        autoSelected,
+        options,
+        select,
+        clear,
       }
     }
   }
 </script>
+
 ```
 
 :::
@@ -1225,24 +1249,30 @@ hover 方式触发条目展示
 
 input框中只展示最后一级
 
-:::demo 设置 showAllLevels 为 false
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
-    value="" 
-    :tipsArray="cascaderArr"
+
+  <v-cascader
+    value=""
+    :options="options"
     :showAllLevels="false"
-    @autoSelected="autoSelected"
+    @select="select"
   ></v-cascader>
+
 </template>
+
 <script>
+
   import { ref } from 'vue';
 
   export default {
+
     setup() {
-      let cascaderArr = ref([
+
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
@@ -1508,50 +1538,57 @@ input框中只展示最后一级
             }
           ]
         }
-      ])
+      ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
       return {
-        cascaderArr,
-        autoSelected
+        options,
+        select
       }
     },
   }
 </script>
+
 ```
 
 :::
 
-#### 自定义模板
+#### 自定义展示
 
-自定义条目展示样式
+使用作用域插槽进行自定义展示
 
-:::demo 注入组件名称
+:::demo
 
 ```html
 
 <template>
-  <v-cascader 
+
+  <v-cascader
     value=""
-    injectComponentName="cas"
-    :tipsArray="cascaderArr" 
-    @autoSelected="autoSelected"
+    :options="options"
+    @select="select"
   >
+
     <template #default="{ item }">
       <div>c{{ item.label }}</div>
     </template>
+
   </v-cascader>
+
 </template>
+
 <script>
 
   import { ref } from 'vue';
 
   export default {
+
     setup() {
-      let cascaderArr = ref([
+
+      const options = ref([
         {
           value: 'zhinan',
           label: '指南',
@@ -1643,15 +1680,15 @@ input框中只展示最后一级
                 {
                   value: 'input-number',
                   label: 'InputNumber 计数器'
-                },
-                {
+                }, {
                   value: 'select',
                   label: 'Select 选择器'
                 },
                 {
                   value: 'cascader',
                   label: 'Cascader 级联选择器'
-                }, {
+                },
+                {
                   value: 'switch',
                   label: 'Switch 开关'
                 },
@@ -1766,7 +1803,8 @@ input框中只展示最后一级
                   label: 'Steps 步骤条'
                 }
               ]
-            }, {
+            },
+            {
               value: 'others',
               label: 'Others',
               children: [
@@ -1816,19 +1854,20 @@ input框中只展示最后一级
             }
           ]
         }
-      ])
+      ]);
 
-      function autoSelected(obj) {
+      function select(obj) {
         console.log("auto 选中的值是:", obj);
       }
 
       return {
-        cascaderArr,
-        autoSelected
+        options,
+        select
       }
     },
   }
 </script>
+
 ```
 
 :::
@@ -1839,23 +1878,25 @@ input框中只展示最后一级
 
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| tipArray | 要展示的内容 | object | - | - |
-| hoverTrigger | 是否hover触发 | boolean | - | false |
-| clearable | 是否可清空 | boolean | - | false |
-| showAllLevels | 是否只展示最后一级 | boolean | - | true |
-| disabled | tipArray的中的item是否禁止选中 | boolean | - | false |
-| selected | tipArray的中的item是否默认选中 | boolean | - | false |
-| width | input的宽度 | number | - | 170 |
-| height | input的高度 | number | - | 40 |
-| popperMaxHeight | 下拉框的最大高度 | number | - | 210 |
-| itemWidth | 自动提示组件中每条数据的宽度 | number | - | 150 |
-| itemHeight | 自动提示组件中每条数据的高度 | number | - | 30 |
+| modelValue | 输入框中选中项 | Array | - | [] |
+| options | 要展示的内容 | Array | - | [] |
+| width | input的宽度 | String | - | 170px |
+| height | input的高度 | String | - | 40px |
+| placeholder | input placeholder | String | - | '' |
+| clearable | 是否可清空 | Boolean | - | false |
+| showAllLevels | 是否只展示最后一级 | Boolean | - | true |
+| hoverTrigger | 是否hover触发 | Boolean | - | false |
+| popperMaxHeight | 下拉框的最大高度 | String | - | 210px |
+| itemWidth | 自动提示组件中每条数据的宽度 | String | - | 150px |
+| itemHeight | 自动提示组件中每条数据的高度 | String | - | 30px |
+| separator | 输入框中的分隔符 | String | - | ' / ' |
 
 #### event
 
 | 名称 | 说明 | 参数 |
 |---------- |-------- |---------- |
-| autoSelected | 被选中时的回调方法 | 当前item |
+| select | 被选中时的回调方法 | 当前item |
+| clear | 清空时调用的方法 | 值 |
 
 #### slot
 

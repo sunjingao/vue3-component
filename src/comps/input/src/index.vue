@@ -17,33 +17,31 @@
     <slot name="front"></slot>
 
     <!--因为input有默认最小宽度，所以嵌套在div中进行宽度限制-->
-    <div :class="[`${CLS_PRE}-input-outer`]">
-      <input
-        ref="inputD"
-        v-bind="$attrs"
-        :value="modelValue"
-        :type="showPassword ? (isShowPwdIconRf ? 'text' : 'password') : type"
-        :disabled="disabled"
-        :class="[
-          `${CLS_PRE}-input-content`,
-          {
-            disabled: disabled,
-          },
-        ]"
-        :style="{
-          fontSize: fz,
-          textAlign: textAlign,
-        }"
-        @input="handleInput"
-        @change="handleChange"
-        @focus="handleFocus"
-        @blur="handleBlur"
-        @keyup.enter="handleEnter"
-        @compositionstart="handleCompositionStart"
-        @compositionupdate="handleCompositionUpdate"
-        @compositionend="handleCompositionEnd"
-      />
-    </div>
+    <input
+      ref="inputD"
+      v-bind="$attrs"
+      :value="modelValue"
+      :type="showPassword ? (isShowPwdIconRf ? 'text' : 'password') : type"
+      :disabled="disabled"
+      :class="[
+        `${CLS_PRE}-input-content`,
+        {
+          disabled: disabled,
+        },
+      ]"
+      :style="{
+        fontSize: fz,
+        textAlign: textAlign,
+      }"
+      @input="handleInput"
+      @change="handleChange"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      @keyup.enter="handleEnter"
+      @compositionstart="handleCompositionStart"
+      @compositionupdate="handleCompositionUpdate"
+      @compositionend="handleCompositionEnd"
+    />
 
     <div v-if="showPassword" @click="handleTgPwd">
       <i
@@ -96,16 +94,17 @@ export default defineComponent({
   props: PROPS_DES,
 
   setup(props, { emit, expose }) {
-    const isFocusRf = ref(false);
     const inputD = ref(null);
+
+    const isFocusRf = ref(false);
+
+    const isShowPwdIconRf = ref(false);
 
     const classCp = computed(() => props.class);
 
     const styleCp = computed(() => props.style);
 
     const textLenCp = computed(() => String(props.modelValue).length);
-
-    const isShowPwdIconRf = ref(false);
 
     // 中文处理标识
     let isComposition = false;

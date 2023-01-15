@@ -1,12 +1,12 @@
 # Card 卡片
 
-Card 卡片
+展示信息区块
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -38,7 +38,7 @@ Card 卡片
 
 带图片
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -58,7 +58,7 @@ Card 卡片
         </div>
       </div>
     </v-card>
-    <v-card class="box" :contentStyle="{padding:0}" style="margin-left: 20px;">
+    <v-card class="box ml20" :contentStyle="{padding:0}">
       <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
            class="image">
       <div style="padding: 14px;">

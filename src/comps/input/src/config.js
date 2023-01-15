@@ -35,7 +35,7 @@ const PROPS_DES = {
   fz: {
     required: false,
     type: String,
-    default: '.85rem',
+    default: '1rem',
   },
   disabled: {
     required: false,

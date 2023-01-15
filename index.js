@@ -17,8 +17,6 @@ import 'nprogress/nprogress.css';
 // 美化demo-box展示代码
 import 'highlight.js/styles/color-brewer.css';
 
-import TestTree from './docs/temps/tree/index';
-
 // import
 
 router.beforeEach((to, from, next) => {
@@ -33,6 +31,3 @@ router.afterEach(() => {
 const app = createApp(App);
 app.component('demo-block', demoBlock);
 app.use(install).use(router).mount('#app');
-
-// 用于自动提示文档展示的全局组件注册
-app.component('test-tree', TestTree);

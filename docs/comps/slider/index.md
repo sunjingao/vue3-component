@@ -1,35 +1,35 @@
 # Slider 滑块
 
-文本框相关操作
+通过拖动的方式在固定区间内进行选择
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
 <template>
   <div class="block">
     <span class="demonstration">默认</span>
-    <v-slider v-model="value1"></v-slider>
+    <v-slider v-model="value1" @change="change"></v-slider>
   </div>
   <div class="block">
     <span class="demonstration">自定义初始值</span>
-    <v-slider v-model="value2"></v-slider>
+    <v-slider v-model="value2" @change="change"></v-slider>
   </div>
   <div class="block">
     <span class="demonstration">隐藏 Tooltip</span>
-    <v-slider v-model="value3" :show-tooltip="false"></v-slider>
+    <v-slider v-model="value3" :show-tooltip="false" @change="change"></v-slider>
   </div>
   <div class="block">
     <span class="demonstration">格式化 Tooltip</span>
-    <v-slider v-model="value4" :format-tooltip="formatTooltip"></v-slider>
+    <v-slider v-model="value4" :format-tooltip="formatTooltip" @change="change"></v-slider>
   </div>
   <div class="block">
     <span class="demonstration">禁用</span>
-    <v-slider v-model="value5" disabled></v-slider>
+    <v-slider v-model="value5" disabled @change="change"></v-slider>
   </div>
 </template>
 <script>
@@ -46,6 +46,10 @@
       function formatTooltip(val) {
         return val / 100;
       }
+      
+      function change(val) {
+        console.log(val);
+      }
 
       return {
         value1,
@@ -54,6 +58,7 @@
         value4,
         value5,
         formatTooltip,
+        change,
       }
     },
   }
@@ -66,7 +71,7 @@
 
 离散值
 
-:::demo 离散值
+:::demo
 
 ```html
 
@@ -77,6 +82,7 @@
     <v-slider
       v-model="value1"
       :step="10"
+      @change="change"
     >
     </v-slider>
   </div>
@@ -86,6 +92,7 @@
       v-model="value2"
       :step="10"
       show-stops
+      @change="change"
     >
     </v-slider>
   </div>
@@ -101,9 +108,15 @@
 
       let value1 = ref(0);
       let value2 = ref(0);
+      
+      function change(val) {
+        console.log(val);
+      }
+      
       return {
         value1,
         value2,
+        change,
       }
     },
   }
@@ -128,6 +141,7 @@
       v-model="value"
       range
       :marks="marks"
+      @change="change"
     >
     </v-slider>
   </div>
@@ -147,9 +161,14 @@
         { left: '85%', value: '<span style="color:blue;">85</span>' },
       ]);
 
+      function change(val) {
+        console.log(val);
+      }
+      
       return {
         value,
         marks,
+        change,
       }
     }
   }

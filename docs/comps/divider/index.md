@@ -1,12 +1,12 @@
 # Divider 分割线
 
-Divider 分割线
+区分不同层级
 
 #### 基础用法
 
 基础用法
 
-:::demo 基础用法
+:::demo
 
 ```html
 
@@ -25,7 +25,7 @@ Divider 分割线
 
 可设置文本及文本展示样式
 
-:::demo 设置position定义展示文本位置，设置show-line定义是否展示线
+:::demo
 
 ```html
 
@@ -47,7 +47,7 @@ Divider 分割线
 
 垂直分隔
 
-:::demo 设置direction="vertical"
+:::demo
 
 ```html
 

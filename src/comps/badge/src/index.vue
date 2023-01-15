@@ -1,8 +1,8 @@
 <template>
   <div :class="[`${CLS_PRE}-badge`]">
     <slot></slot>
-    <span v-if="tipCp && !isDot" :class="[`${CLS_PRE}-icon`, iconClass]">
-      {{ tipCp }}
+    <span v-if="tipContentCp && !isDot" :class="[`${CLS_PRE}-icon`, iconClass]">
+      {{ tipContentCp }}
     </span>
     <span v-else-if="isDot" :class="[`${CLS_PRE}-dot`, iconClass]"> </span>
   </div>
@@ -21,7 +21,7 @@ export default defineComponent({
   props: PROPS_DES,
 
   setup(props, { expose }) {
-    const tipCp = computed(() => {
+    const tipContentCp = computed(() => {
       if (props.max && props.max < props.value) {
         return `${props.max}+`;
       }
@@ -32,7 +32,7 @@ export default defineComponent({
 
     return {
       CLS_PRE,
-      tipCp,
+      tipContentCp,
     };
   },
 });

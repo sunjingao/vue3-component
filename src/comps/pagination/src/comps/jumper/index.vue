@@ -27,6 +27,9 @@ export default defineComponent({
     const inputValRf = ref(0);
 
     function handleChangeVal() {
+      if (props.modelValue === inputValRf.value) {
+        return;
+      }
       emit(EMITS.UPDATE_MODEL_VALUE, inputValRf.value);
     }
 

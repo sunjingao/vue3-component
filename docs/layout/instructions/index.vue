@@ -49,20 +49,12 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'instructions',
 
-  setup() {
-    const text = ref(`
-      123
-      #123
-    `);
-    return {
-      text,
-    };
-  },
+  setup() {},
 });
 </script>
 

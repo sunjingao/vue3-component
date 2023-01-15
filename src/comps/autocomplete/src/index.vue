@@ -8,8 +8,8 @@
       v-bind="$attrs"
       v-model="inputValueCp"
       @focus="handleFocus"
-      @keydown.up.prevent="handleMove('up')"
-      @keydown.down.prevent="handleMove('down')"
+      @keydown.up.prevent="handleMove(MOVE_TYPES.UP)"
+      @keydown.down.prevent="handleMove(MOVE_TYPES.DOWN)"
       @keydown.enter="handleEnter"
       @keydown.esc="handleEsc"
     >
@@ -30,13 +30,11 @@
       <template v-if="$slots.default">
         <div
           v-for="(item, index) in options"
+          :key="index"
           :class="[
             `${CLS_PRE}-popper-item`,
-            {
-              active: activeIndexRf === index,
-            },
+            { active: activeIndexRf === index },
           ]"
-          :key="index"
           @click="handleClickOpn(item)"
         >
           <slot :item="item"></slot>
@@ -46,13 +44,11 @@
       <template v-else>
         <div
           v-for="(item, index) in options"
+          :key="index"
           :class="[
             `${CLS_PRE}-popper-item`,
-            {
-              active: activeIndexRf === index,
-            },
+            { active: activeIndexRf === index },
           ]"
-          :key="index"
           @click="handleClickOpn(item)"
           v-html="item.label"
         ></div>
@@ -69,7 +65,14 @@ import { useMove } from './compos/useMove/index';
 import { defineComponent, ref, computed } from 'vue';
 import { usePopper } from '@/hooks/usePopper';
 
-import { COMP_NAME, CLS_PRE, EMITS, EMITS_DEC, PROPS_DES } from './config';
+import {
+  COMP_NAME,
+  CLS_PRE,
+  EMITS,
+  EMITS_DEC,
+  PROPS_DES,
+  MOVE_TYPES,
+} from './config';
 
 export default defineComponent({
   name: COMP_NAME,
@@ -157,6 +160,7 @@ export default defineComponent({
 
     return {
       CLS_PRE,
+      MOVE_TYPES,
       activeIndexRf,
       referenceD,
       popperD,

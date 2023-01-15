@@ -1,12 +1,12 @@
 # PageHeader 页头
 
-PageHeader 页头
+简单的路径展示
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -34,7 +34,7 @@ PageHeader 页头
 
 自定义标题和展示内容
 
-:::demo 使用标题和内容的默认插槽
+:::demo
 
 ```html
 

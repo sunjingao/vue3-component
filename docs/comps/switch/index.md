@@ -1,12 +1,12 @@
 ## Switch 开关
 
-状态切换,代表开关的圆在右侧表示为true的状态，在左侧时表示false的状态
+两种状态的切换
 
 #### 基本用法
 
 基本用法
 
-:::demo v-model 设置 初始状态
+:::demo
 
 ```html
 
@@ -42,7 +42,7 @@
 
 自定义字体颜色
 
-:::demo 通过 activeFontColor 和 inactiveFontColor 进行true和false两种状态的字体颜色设置
+:::demo
 
 ```html
 
@@ -78,7 +78,7 @@
 
 自定义背景颜色
 
-:::demo 通过 activeBgColor 和 inactiveBgColor 进行true和false两种状态的背景颜色设置
+:::demo
 
 ```html
 
@@ -114,7 +114,7 @@
 
 禁止操作
 
-:::demo 通过设置 disabled，禁止操作
+:::demo
 
 ```html
 
@@ -147,8 +147,8 @@
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | modelValue | 值 | Boolean | - | true |
-| width | 宽度 | Number | - | 40 |
-| height | 高度 | Number | - | 20 |
+| width | 宽度 | String | - | 40px |
+| height | 高度 | String | - | 20px |
 | disabled | 中间的移动的圆的背景颜色 | Boolean | - | false |
 | circleBgColor | 中间的移动的圆的背景颜色 | string | - | #fff |
 | inactiveBgColor | 状态为false时的背景颜色 | String | - | #C0CCDA |

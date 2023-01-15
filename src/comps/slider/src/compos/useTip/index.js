@@ -29,7 +29,7 @@ export function useTip(
       if (showTooltipRf.value && (isHoverRf.value || isMovingRf.value)) {
         tooltipD.value.showPopper();
       } else {
-        tooltipD.value.hidePopper();
+        tooltipD.value && tooltipD.value.hidePopper();
       }
     }
   );

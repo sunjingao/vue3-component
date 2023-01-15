@@ -1,18 +1,18 @@
 # Pagination 分页
 
-Pagination 分页
+控制数据条数
 
 #### 基础用法
 
 基础用法
 
-:::demo 基础用法
+:::demo
 
 ```html
 
 <template>
 
-  <v-pagination :total="total"></v-pagination>
+  <v-pagination :total="total" @pageChange="pageChange" @selectChange="selectChange"></v-pagination>
 
 </template>
 
@@ -26,14 +26,18 @@ Pagination 分页
 
       const total = ref(500);
 
-      function paginationPageChange(item) {
-        console.log("pagination");
-        console.log(item);
+      function pageChange(val) {
+        console.log("pageChange:", val);
+      }
+      
+      function selectChange(val) {
+        console.log("selectChange:", val);
       }
 
       return {
         total,
-        paginationPageChange
+        pageChange,
+        selectChange,
       }
     }
   }
@@ -48,7 +52,7 @@ Pagination 分页
 
 条目以button样式进行展示
 
-:::demo 设置 background 属性为true
+:::demo
 
 ```html
 
@@ -57,7 +61,9 @@ Pagination 分页
   <v-pagination
     :isButton="isButton"
     :total="total"
-    @page-change="paginationPageChange">
+    @pageChange="pageChange" 
+    @selectChange="selectChange"
+  >
   </v-pagination>
 
 </template>
@@ -73,15 +79,19 @@ Pagination 分页
       const isButton = ref(true);
       const total = ref(500);
 
-      function paginationPageChange(item) {
-        console.log("pagination");
-        console.log(item);
+      function pageChange(val) {
+        console.log("pageChange:", val);
+      }
+
+      function selectChange(val) {
+        console.log("selectChange:", val);
       }
 
       return {
         isButton,
         total,
-        paginationPageChange
+        pageChange,
+        selectChange,
       }
     }
   }
@@ -95,7 +105,7 @@ Pagination 分页
 
 自定义展示内容及展示顺序
 
-:::demo 设置 layout 属性控制 展示内容及展示顺序
+:::demo
 
 ```html
 
@@ -104,8 +114,8 @@ Pagination 分页
   <v-pagination
     :layout="layout"
     :total="total"
-    @page-change="paginationPageChange"
-    @select-change="selectChange"
+    @pageChange="pageChange"
+    @selectChange="selectChange"
   >
   </v-pagination>
 
@@ -122,19 +132,19 @@ Pagination 分页
       const layout = ref(['pager', 'sizes', 'jumper', 'total']);
       const total = ref(500);
 
-      function paginationPageChange(item) {
-        console.log("pagination", item);
+      function pageChange(val) {
+        console.log("pageChange:", val);
       }
 
-      function selectChange(value) {
-        console.log('selectChange', value);
+      function selectChange(val) {
+        console.log("selectChange:", val);
       }
 
       return {
         layout,
         total,
-        paginationPageChange,
-        selectChange
+        pageChange,
+        selectChange,
       }
     }
   }

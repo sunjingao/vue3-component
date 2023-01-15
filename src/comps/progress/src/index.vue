@@ -1,17 +1,14 @@
 <template>
   <div :class="[`${CLS_PRE}-progress`]">
     <template v-if="type === 'line'">
-      <div
-        :class="[`out-line`]"
-        :style="{ width: `${width}px`, height: spacing + 'px' }"
-      >
-        <div :class="[`line`]" :style="{ borderRadius: `${spacing / 2}px` }">
+      <div :class="[`out-line`]" :style="{ width: width, height: height }">
+        <div :class="[`line`]" :style="{ borderRadius: `calc(${height} / 2)` }">
           <div
             :class="[`finished`]"
             :style="{
               width: `${percentage}%`,
-              height: spacing + 'px',
-              borderRadius: `${spacing / 2}px`,
+              height: height,
+              borderRadius: `calc(${height} / 2)`,
               backgroundColor: bgColorCp,
             }"
           ></div>
@@ -24,9 +21,9 @@
         <div
           v-else
           :style="{
-            width: `${textWidth}px`,
+            width: textWidth,
             left: textInside
-              ? `calc(${percentage}% - ${textWidth + 10}px)`
+              ? `calc(${percentage}% - ${textWidth} - 10px)`
               : 'auto',
           }"
           :class="[`text`, { inside: textInside }]"
@@ -36,30 +33,27 @@
       </div>
     </template>
     <template v-else>
-      <div
-        :class="[`circle`]"
-        :style="{ width: `${diameter}px`, height: `${diameter}px` }"
-      >
+      <div :class="[`circle`]" :style="{ width: diameter, height: diameter }">
         <div
           :class="[`inner`]"
           :style="{
-            width: `${diameter - spacing * 2}px`,
-            height: `${diameter - spacing * 2}px`,
-            marginTop: `${spacing}px`,
-            marginLeft: `${spacing}px`,
+            width: `calc(${diameter} - ${height} * 2)`,
+            height: `calc(${diameter} - ${height} * 2)`,
+            marginTop: height,
+            marginLeft: height,
           }"
         ></div>
 
         <div :class="[`right`]">
           <div
-            :class="[`rightFinish`]"
+            :class="[`right-finish`]"
             :style="{ transform: rightDegCp, backgroundColor: bgColor }"
           ></div>
         </div>
 
         <div :class="[`left`]">
           <div
-            :class="[`leftFinish`]"
+            :class="[`left-finish`]"
             :style="{ transform: leftDeg, backgroundColor: bgColor }"
           ></div>
         </div>

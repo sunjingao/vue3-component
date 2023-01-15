@@ -81,6 +81,10 @@ export default defineComponent({
 
     // 下拉框改变时的操作
     function handleSelectChange(val) {
+      if (val === props.pageSize) {
+        return;
+      }
+
       initInputValue();
       setPagerTotalRf(val);
       emit(EMITS.SELECT_CHANGE, val);

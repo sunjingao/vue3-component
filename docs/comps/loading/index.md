@@ -1,11 +1,11 @@
 # Loading 加载
 
-Loading 加载
+遮挡区域，防止用户操作
 
 #### 全屏
 
 全屏loading
-:::demo 传入target
+:::demo
 
 ```html
 
@@ -30,7 +30,7 @@ Loading 加载
       <div>1</div>
       <div>1</div>
     </div>
-    <button @click="toggle">toggle</button>
+    <v-button @click="toggle" class="mt20">展示全屏loading</v-button>
   </div>
 </template>
 <script>
@@ -69,7 +69,7 @@ Loading 加载
 
 指令局部loading
 
-:::demo 指令后不加选择器
+:::demo
 
 ```html
 
@@ -108,7 +108,7 @@ Loading 加载
       <div>1</div>
       <div>1</div>
     </div>
-    <div v-loading="sign2" class="loading-all">
+    <div v-loading="sign2" class="loading-all mt20">
       <div>2</div>
       <div>2</div>
       <div>2</div>
@@ -151,7 +151,7 @@ Loading 加载
       <div>2</div>
       <div>2</div>
     </div>
-    <button @click="toggle">toggle</button>
+    <v-button @click="toggle" class="mt20">展示区域loading</v-button>
   </div>
 </template>
 <script>
@@ -196,7 +196,7 @@ Loading 加载
 
 局部加载
 
-:::demo 局部加载
+:::demo
 
 ```html
 
@@ -206,16 +206,17 @@ Loading 加载
 
     <div class="loading-all testSer"></div>
 
-    <button class="loading-service" @click="open">点我开启局部loading</button>
-    <button class="loading-service" @click="close">点我关闭局部loading</button>
-
+    <div class="mt20">
+      <v-button class="loading-service" @click="open">点我开启局部loading</v-button>
+      <v-button class="loading-service ml20" @click="close">点我关闭局部loading</v-button>
+    </div>
   </div>
 
 </template>
 
 <script>
 
-  import { ref, getCurrentInstance, onMounted } from 'vue';
+  import { getCurrentInstance, onMounted } from 'vue';
 
   export default {
 

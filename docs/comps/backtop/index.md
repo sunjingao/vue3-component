@@ -1,6 +1,6 @@
 # BackTop 回到顶部
 
-BackTop 回到顶部
+提供返回页面顶部的功能
 
 #### 基础用法
 
@@ -13,7 +13,7 @@ BackTop 回到顶部
 <template>
   <div>
     滑动页面至下方，可以看见组件
-    <v-back-top selector=".main-wrapper-container" :bottom="260" @click="click">
+    <v-back-top selector=".main-wrapper-container" bottom="260px" @click="click">
       <div
         style="{
                 height: 100%;
@@ -63,7 +63,7 @@ BackTop 回到顶部
     <div class="testpart"></div>
   </div>
   <div>
-    <v-back-top selector="#test" :bottom="200" @click="click"></v-back-top>
+    <v-back-top selector="#test" bottom="200px" @click="click"></v-back-top>
   </div>
 </template>
 <script>
@@ -91,8 +91,8 @@ BackTop 回到顶部
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | selector | 选择器 | String | root、selector选择器 | root |
 | visibilityHeight | 滚动高度达到此参数值才出现 | Number | - | 200 |
-| right | 页面右边距离 | Number | - | 40 |
-| bottom | 页面底部距离 | Number | - | 40 |
+| right | 页面右边距离 | String | - | 40px |
+| bottom | 页面底部距离 | String | - | 40px |
 | timeout | 节流时间 | Number | - | 500 |
 
 #### event

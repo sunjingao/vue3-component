@@ -1,12 +1,12 @@
 # InfiniteScroll 无限滚动
 
-InfiniteScroll 无限滚动
+滚动时按需加载数据
 
 #### 基础用法
 
 基础用法
 
-:::demo 基础用法
+:::demo
 
 ```html
 

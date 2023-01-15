@@ -23,14 +23,14 @@ const PROPS_DES = {
     default: false,
   },
   width: {
-    type: [Number, String],
+    type: String,
     required: false,
     default: 'auto',
   },
   height: {
-    type: Number,
+    type: String,
     required: false,
-    default: 32,
+    default: '32px',
   },
 };
 

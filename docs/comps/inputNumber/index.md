@@ -1,10 +1,10 @@
 ## InputNumber 计数器
 
-在一定范围内，变化数据
+操作变换数字
 
 #### 基础用法
 
-:::demo 基础用法
+:::demo
 
 ```html
 
@@ -19,7 +19,7 @@
 
     setup() {
       const counter = ref(3);
-
+      
       function input(val) {
         console.log(val);
       }
@@ -39,7 +39,7 @@
 
 禁止填写和点击来改变数字
 
-:::demo 添加disabled属性
+:::demo
 
 ```html
 
@@ -68,7 +68,7 @@
 
 控制每次点击增加 / 减少 改变的大小
 
-:::demo 通过 step 属性控制
+:::demo
 
 ```html
 
@@ -102,7 +102,7 @@
 
 改变区域的范围
 
-:::demo 通过控制 max 和 min 属性
+:::demo
 
 ```html
 
@@ -136,7 +136,7 @@
 
 控制点击区域的位置
 
-:::demo controlsPosition属性的 bothSides 和 rightSide 属性
+:::demo
 
 ```html
 

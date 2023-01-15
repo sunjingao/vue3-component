@@ -6,14 +6,23 @@ const COMP_NAME = `${COMP_PRE}-cascader`;
 const PROVIDE_KEY = COMP_NAME;
 
 const EMITS = {
-  AUTO_SELECTED: 'autoSelected',
+  UPDATE_MODEL_VALUE: 'update:modelValue',
+  SELECT: 'select',
+  CLEAR: 'clear',
 };
 
 const EMITS_DEC = Object.values(EMITS);
 
 const PROPS_DES = {
-  // 说明：提示框数据内容
-  tipsArray: {
+  modelValue: {
+    required: false,
+    type: Array,
+    default: function () {
+      return [];
+    },
+  },
+  // 说明：配置内容
+  options: {
     required: false,
     type: Array,
     default: function () {
@@ -36,7 +45,7 @@ const PROPS_DES = {
   placeholder: {
     required: false,
     type: String,
-    default: '请选择',
+    default: '',
   },
   // 说明：input是否清空输入框
   clearable: {
@@ -59,20 +68,26 @@ const PROPS_DES = {
   // 自动提示组件的高度
   popperMaxHeight: {
     required: false,
-    type: Number,
-    default: 210,
+    type: String,
+    default: '210px',
   },
   // 自动提示组件中每条数据的宽度
   itemWidth: {
     required: false,
-    type: Number,
-    default: 150,
+    type: String,
+    default: '150px',
   },
   // 自动提示组件中每条数据的高度
   itemHeight: {
     required: false,
-    type: Number,
-    default: 30,
+    type: String,
+    default: '30px',
+  },
+  // 自动提示组件中每条数据的高度
+  separator: {
+    required: false,
+    type: String,
+    default: ' / ',
   },
 };
 

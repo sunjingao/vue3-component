@@ -6,6 +6,19 @@
       <template #header>
         <div class="header-content">
           <h3 class="dib fz20 m0">v1.0.0</h3>
+          <span class="dib"> 2023-01-13 </span>
+        </div>
+      </template>
+      <div>
+        <h4 class="fz18 mt0">开发完成</h4>
+        完成组件库各组件的开发
+      </div>
+    </v-card>
+
+    <v-card class="mt20">
+      <template #header>
+        <div class="header-content">
+          <h3 class="dib fz20 m0">v0.0.0</h3>
           <span class="dib"> 2022-09-06 </span>
         </div>
       </template>

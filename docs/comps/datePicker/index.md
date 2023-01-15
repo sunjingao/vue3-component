@@ -1,12 +1,12 @@
 # DatePicker 时间选择器
 
-时间选择器基本用法
+可以进行输入和提示的时间框
 
 #### 年份
 
 展示年份
 
-:::demo type:year
+:::demo
 
 ```html
 
@@ -63,7 +63,7 @@
 
 展示月份
 
-:::demo type:month
+:::demo
 
 ```html
 
@@ -129,7 +129,7 @@
 
 展示日期
 
-:::demo type:date
+:::demo
 
 ```html
 
@@ -201,7 +201,7 @@
 
 输入框中的时间展示按照分隔符进行分割
 
-:::demo type:date
+:::demo
 
 ```html
 
@@ -266,7 +266,7 @@
 
 可以通过input输入框进行时间输入
 
-:::demo type:year
+:::demo
 
 ```html
 
@@ -324,7 +324,7 @@
 
 允许清空输入框中的内容
 
-:::demo clearable
+:::demo
 
 ```html
 
@@ -334,6 +334,7 @@
     type="year"
     :options="optionsDate"
     @change="change"
+    @clear="clear"
     placeholder="请选择日期"
     clearable
   ></v-date-picker>
@@ -370,9 +371,14 @@
         console.log('in time change:', val);
       }
 
+      function clear(val) {
+        console.log('clear:', val);
+      }
+      
       return {
         optionsDate,
         change,
+        clear,
       }
     },
   }
@@ -386,7 +392,7 @@
 
 宽高设置
 
-:::demo 设置width，height属性
+:::demo
 
 ```html
 

@@ -1,6 +1,6 @@
 # Carousel 走马灯
 
-Carousel 走马灯
+循环展示图片信息
 
 #### 基本用法
 
@@ -13,15 +13,15 @@ Carousel 走马灯
 <template>
 
   <div class="vCarouselDoc">
-    <v-carousel class="border" @prev="prev" @next="next" @locate="locate">
-      <v-carousel-item :key="1" style="background-color: gray;">
-        <h3 class="center">1</h3>
+    <v-carousel @prev="prev" @next="next" @locate="locate">
+      <v-carousel-item :key="1" style="background-color: #821d40;">
+        <h3 class="center fc">1</h3>
       </v-carousel-item>
-      <v-carousel-item :key="2" style="background-color: white;">
-        <h3 class="center">2</h3>
+      <v-carousel-item :key="2" style="background-color: gray;">
+        <h3 class="center fc">2</h3>
       </v-carousel-item>
       <v-carousel-item :key="3" style="background-color: #475669;">
-        <h3 class="center">3</h3>
+        <h3 class="center fc">3</h3>
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -64,10 +64,16 @@ Carousel 走马灯
 
 <template>
 
-  <div class="vCarouselDoc vmb20">
-    <v-carousel class="border" indicator="outside" :init-index="1" @prev="prev" @next="next" @locate="locate">
-      <v-carousel-item v-for="item in 3" :key="item">
-        <h3 class="center">{{ item }}</h3>
+  <div class="vCarouselDoc">
+    <v-carousel indicator="outside" @prev="prev" @next="next" @locate="locate">
+      <v-carousel-item :key="1" style="background-color: #821d40;">
+        <h3 class="center fc">1</h3>
+      </v-carousel-item>
+      <v-carousel-item :key="2" style="background-color: gray;">
+        <h3 class="center fc">2</h3>
+      </v-carousel-item>
+      <v-carousel-item :key="3" style="background-color: #475669;">
+        <h3 class="center fc">3</h3>
       </v-carousel-item>
     </v-carousel>
   </div>
@@ -113,13 +119,21 @@ Carousel 走马灯
 ```html
 
 <template>
+
   <div class="vCarouselDoc">
-    <v-carousel class="border" arrow="always" @prev="prev" @next="next" @locate="locate">
-      <v-carousel-item v-for="item in 3" :key="item">
-        <h3 class="center">{{ item }}</h3>
+    <v-carousel arrow="always" @prev="prev" @next="next" @locate="locate">
+      <v-carousel-item :key="2" style="background-color: #821d40;">
+        <h3 class="center fc">1</h3>
+      </v-carousel-item>
+      <v-carousel-item :key="1" style="background-color: gray;">
+        <h3 class="center fc">2</h3>
+      </v-carousel-item>
+      <v-carousel-item :key="3" style="background-color: #475669;">
+        <h3 class="center fc">3</h3>
       </v-carousel-item>
     </v-carousel>
   </div>
+
 </template>
 
 <script>
@@ -127,7 +141,7 @@ Carousel 走马灯
   export default {
 
     setup() {
-
+      
       function prev(index) {
         console.log('prev:', index);
       }
@@ -160,7 +174,7 @@ Carousel 走马灯
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | initIndex | 初始索引 | Number | - | 0 |
-| height | 高度 | Number | - | 300 |
+| height | 高度 | String | - | 300px |
 | trigger | 指示器触发方式 | String | hover/click | hover |
 | autoplay | 是否自动切换 | Boolean | - | true |
 | interval | 切换事件 | Number | - | 2000 |

@@ -101,6 +101,27 @@ export function useData(
   }
 
   function setData(startTime, endTime) {
+    if (!showEndTimeRf.value) {
+      if (
+        startTime.hour === startTimeRt.hour &&
+        startTime.minute === startTimeRt.minute &&
+        startTime.second === startTimeRt.second
+      ) {
+        return;
+      }
+    } else {
+      if (
+        startTime.hour === startTimeRt.hour &&
+        startTime.minute === startTimeRt.minute &&
+        startTime.second === startTimeRt.second &&
+        endTime.hour === endTimeRt.hour &&
+        endTime.minute === endTimeRt.minute &&
+        endTime.second === endTimeRt.second
+      ) {
+        return;
+      }
+    }
+
     setDataDirect(startTime, endTime);
 
     if (getIsSelectedDataValid()) {
@@ -120,6 +141,7 @@ export function useData(
       minute: '',
       second: '',
     };
+    emit(EMITS.CLEAR, startTimeObj, endTimeObj);
     setData(startTimeObj, endTimeObj);
   }
 

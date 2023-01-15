@@ -8,7 +8,7 @@
     :max="max"
     :min="min"
     :disabled="disabled"
-    @change="handleChange"
+    @inpur="handleInput"
     text-align="center"
   >
     <!--触发区域在左右-->
@@ -119,7 +119,7 @@ export default defineComponent({
       inputValueCp.value += props.step;
     }
 
-    function handleChange(val) {
+    function handleInput(val) {
       inputValueCp.value = val;
     }
 
@@ -132,7 +132,7 @@ export default defineComponent({
       isCanIncCp,
       handleDecrease,
       handleIncrease,
-      handleChange,
+      handleInput,
     };
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-block">
+  <div class="demo-block" ref="demoBlockD">
     <div class="demo-wrap" :class="{ show: isShow }">
       <div class="demo-source">
         <slot name="source"></slot>
@@ -37,10 +37,11 @@
 </template>
 
 <script>
-import { ref, getCurrentInstance } from 'vue';
+import { ref, getCurrentInstance, onMounted } from 'vue';
 
 export default {
   setup(props, { slots }) {
+    const demoBlockD = ref(null);
     const instance = getCurrentInstance();
     const globalProperties = instance.appContext.config.globalProperties;
 
@@ -54,7 +55,12 @@ export default {
       isShow.value = !isShow.value;
     };
 
+    onMounted(() => {
+      setSticky(demoBlockD);
+    });
+
     return {
+      demoBlockD,
       isShow,
       handleCode,
       handleCopy,
@@ -97,6 +103,14 @@ function copy(value) {
     document.execCommand('copy');
   }
   document.body.removeChild(oInput);
+}
+
+function setSticky(demoBlockD) {
+  const stickyDom = demoBlockD.value.querySelector('.close-content');
+  const scrollParentDom = document.querySelector('.main-wrapper-container');
+  const parentPaddingTop = getComputedStyle(scrollParentDom).paddingTop;
+  stickyDom.style.position = 'sticky';
+  stickyDom.style.bottom = `-${parentPaddingTop}`;
 }
 </script>
 

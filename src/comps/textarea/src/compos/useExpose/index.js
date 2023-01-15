@@ -1,6 +1,6 @@
 export function useExpose(textareaRef, modelValueRf) {
   function clear() {
-    modelValueRf = ''; // sja 这里赋值为空的时候有问题
+    modelValueRf = '';
     textareaRef.value.querySelector('textarea').focus();
   }
 

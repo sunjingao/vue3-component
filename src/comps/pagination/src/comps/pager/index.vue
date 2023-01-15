@@ -80,6 +80,9 @@ export default defineComponent({
 
     // 点击某个元素时的操作
     function handleChangeSelect(item) {
+      if (currentPageRf.value === item.value) {
+        return;
+      }
       currentPageRf.value = item.value;
       emit(EMITS.UPDATE_MODEL_VALUE, currentPageRf.value);
       emit(EMITS.PAGE_CHANGE, item.value);

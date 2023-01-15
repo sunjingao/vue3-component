@@ -3,9 +3,9 @@
     v-show="isShowRf"
     :class="[`${CLS_PRE}-tag`, type]"
     :style="{
-      width: width === 'auto' ? 'auto' : `${width}px`,
-      height: `${height}px`,
-      lineHeight: `${height}px`,
+      width: width,
+      height: height,
+      lineHeight: height,
     }"
   >
     <slot></slot>

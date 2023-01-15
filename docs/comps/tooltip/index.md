@@ -1,12 +1,12 @@
 ## ToolTip 文字提示
 
-ToolTip 文字提示
+用于鼠标操作节点时的提示
 
 #### 基本用法
 
 基本用法
 
-:::demo 基本用法
+:::demo
 
 ```html
 
@@ -75,7 +75,7 @@ ToolTip 文字提示
 
 可以设置深沉的主题背景
 
-:::demo 设置theme
+:::demo
 
 ```html
 
@@ -102,7 +102,7 @@ ToolTip 文字提示
 
 自定义展示内容
 
-:::demo 设置popper插槽
+:::demo
 
 ```html
 
@@ -129,7 +129,7 @@ ToolTip 文字提示
 
 不展示tooltip
 
-:::demo 设置disabled属性
+:::demo
 
 ```html
 
@@ -177,7 +177,6 @@ ToolTip 文字提示
 | content | 提示内容 | String | - | '' |
 | theme | 主题 | String | dark/light | light |
 | disabled | 不显示popper | Boolean | - | false |
-| offset | 偏移量 | Number | - | 10 |
 
 #### attr
 

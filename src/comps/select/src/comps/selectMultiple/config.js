@@ -16,18 +16,18 @@ const EMITS_DEC = Object.values(EMITS);
 const PROPS_DES = {
   width: {
     required: false,
-    type: Number,
-    default: 180,
+    type: String,
+    default: '180px',
   },
   minHeight: {
     required: false,
-    type: Number,
-    default: 40,
+    type: String,
+    default: '40px',
   },
   maxHeight: {
     required: false,
-    type: Number,
-    default: 200,
+    type: String,
+    default: '200px',
   },
   modelValue: {
     required: false,

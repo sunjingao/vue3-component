@@ -16,19 +16,19 @@
     <div
       :class="[`${CLS_PRE}-switch-middle`]"
       :style="{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: width,
+        height: height,
         border: `1px solid ${modelValue ? activeBgColor : inactiveBgColor}`,
-        borderRadius: `${height}px`,
+        borderRadius: height,
         backgroundColor: modelValue ? activeBgColor : inactiveBgColor,
       }"
     >
       <i
         :class="[`${CLS_PRE}-switch-middle-move-circle`]"
         :style="{
-          width: `${height - 2}px`,
-          height: `${height - 2}px`,
-          left: `${circleLeftCp}px`,
+          width: `calc(${height} - 2px)`,
+          height: `calc(${height} - 2px)`,
+          left: circleLeftCp,
           backgroundColor: circleBgColor,
         }"
       ></i>
@@ -60,7 +60,9 @@ export default defineComponent({
 
   setup(props, { emit, expose }) {
     const circleLeftCp = computed(() => {
-      return props.modelValue ? props.width - props.height : 0;
+      return props.modelValue
+        ? `calc(${props.width} - ${props.height})`
+        : '0px';
     });
 
     function handleToggle() {

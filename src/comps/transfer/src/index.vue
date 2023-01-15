@@ -134,9 +134,9 @@ import vCheckbox from '@/comps/checkbox/index.js';
 import vButton from '@/comps/button/index.js';
 import vInput from '@/comps/input/index.js';
 
-import { defineComponent, toRef } from 'vue';
-
 import { COMP_NAME, CLS_PRE, EMITS, EMITS_DEC, PROPS_DES } from './config';
+
+import { defineComponent, toRef } from 'vue';
 import { useCheckbox } from './compos/useCheckbox';
 import { useData } from './compos/useData';
 

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[`${CLS_PRE}-breadcrumbItem`, { showHref: isShowHrefCp }]">
+  <div :class="[`${CLS_PRE}-breadcrumb-item`, { 'show-href': isShowHrefCp }]">
     <div @click="handleJump">
       <slot></slot>
     </div>

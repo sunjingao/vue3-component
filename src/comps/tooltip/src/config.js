@@ -33,11 +33,6 @@ const PROPS_DES = {
     type: Boolean,
     default: false,
   },
-  offset: {
-    require: false,
-    type: Number,
-    default: 10,
-  },
 };
 
 export { COMP_NAME, CLS_PRE, EMITS, EMITS_DEC, PROPS_DES, PROVIDE_KEY };
